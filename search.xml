@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/2021/05/07/test/</url>
-    <content><![CDATA[<h1 id="在你继续安装Icarus之前，请先花些时间阅览Hexo文档。-如要安装Icarus，你可以选择如下两种方式中的任意一种："><a href="#在你继续安装Icarus之前，请先花些时间阅览Hexo文档。-如要安装Icarus，你可以选择如下两种方式中的任意一种：" class="headerlink" title="在你继续安装Icarus之前，请先花些时间阅览Hexo文档。 如要安装Icarus，你可以选择如下两种方式中的任意一种："></a>在你继续安装Icarus之前，请先花些时间阅览<a href="https://hexo.io/">Hexo文档</a>。 如要安装Icarus，你可以选择如下两种方式中的任意一种：</h1><ul>
-<li><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/uncategorized/icarus快速上手/#install-source">从源码安装</a></li>
-<li><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/uncategorized/icarus快速上手/#install-npm">使用NPM安装</a></li>
-</ul>
-<h2 id="从GitHub的仓库中下载源码的压缩包并解压到你Hexo站点的主题目录中。-或者，你可以使用Git来克隆Icarus的代码仓库到themes目录下："><a href="#从GitHub的仓库中下载源码的压缩包并解压到你Hexo站点的主题目录中。-或者，你可以使用Git来克隆Icarus的代码仓库到themes目录下：" class="headerlink" title="从GitHub的仓库中下载源码的压缩包并解压到你Hexo站点的主题目录中。 或者，你可以使用Git来克隆Icarus的代码仓库到themes目录下："></a>从GitHub的仓库中下载源码的压缩包并解压到你Hexo站点的主题目录中。 或者，你可以使用Git来克隆Icarus的代码仓库到<code>themes</code>目录下：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash&#x2F;命令行</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus -b &lt;version number&gt; --depth 1</span><br></pre></td></tr></table></figure>
-<h1 id="你可以省略-b-lt-version-number-gt-来获取Icarus的最新开发版本。-如果你想同时下载Git仓库的完整提交历史，请同时省略-depth-1。-另外，你也可以使用下面的命令将Icarus安装为Git子模块-submodule-："><a href="#你可以省略-b-lt-version-number-gt-来获取Icarus的最新开发版本。-如果你想同时下载Git仓库的完整提交历史，请同时省略-depth-1。-另外，你也可以使用下面的命令将Icarus安装为Git子模块-submodule-：" class="headerlink" title="你可以省略-b &lt;version number&gt;来获取Icarus的最新开发版本。 如果你想同时下载Git仓库的完整提交历史，请同时省略--depth 1。 另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)："></a>你可以省略<code>-b &lt;version number&gt;</code>来获取Icarus的最新开发版本。 如果你想同时下载Git仓库的完整提交历史，请同时省略<code>--depth 1</code>。 另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)：</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash&#x2F;命令行</span><br><span class="line"></span><br><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="接下来，在你的站点的-config-yml文件中的开启Icarus："><a href="#接下来，在你的站点的-config-yml文件中的开启Icarus：" class="headerlink" title="接下来，在你的站点的_config.yml文件中的开启Icarus："></a>接下来，在你的站点的<code>_config.yml</code>文件中的开启Icarus：</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"></span><br><span class="line">theme: icarus</span><br></pre></td></tr></table></figure>
-<h3 id="或使用hexo命令修改主题为Icarus"><a href="#或使用hexo命令修改主题为Icarus" class="headerlink" title="或使用hexo命令修改主题为Icarus:"></a>或使用<code>hexo</code>命令修改主题为Icarus:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令行</span><br><span class="line"></span><br><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-<h1 id="最后，使用如下命令来启动Hexo本地测试服务器并开始创作。"><a href="#最后，使用如下命令来启动Hexo本地测试服务器并开始创作。" class="headerlink" title="最后，使用如下命令来启动Hexo本地测试服务器并开始创作。"></a>最后，使用如下命令来启动Hexo本地测试服务器并开始创作。</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令行</span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<h4 id="如需了解更多主题、挂件、和插件相关的信息，请查看-Icarus用户指南。-你也可以参考本站的源代码来获取更多的使用示例。-本站源代码位于GitHub上Icarus代码仓库的site分支。-此外，你也可能在Gitter上获得其他Icarus用户的帮助。"><a href="#如需了解更多主题、挂件、和插件相关的信息，请查看-Icarus用户指南。-你也可以参考本站的源代码来获取更多的使用示例。-本站源代码位于GitHub上Icarus代码仓库的site分支。-此外，你也可能在Gitter上获得其他Icarus用户的帮助。" class="headerlink" title="如需了解更多主题、挂件、和插件相关的信息，请查看 Icarus用户指南。 你也可以参考本站的源代码来获取更多的使用示例。 本站源代码位于GitHub上Icarus代码仓库的site分支。 此外，你也可能在Gitter上获得其他Icarus用户的帮助。"></a>如需了解更多主题、挂件、和插件相关的信息，请查看 <a href="https://blog.zhangruipeng.me/hexo-theme-icarus/tags/Icarus用户指南/">Icarus用户指南</a>。 你也可以参考本站的源代码来获取更多的使用示例。 本站源代码位于GitHub上Icarus代码仓库的<a href="https://github.com/ppoffice/hexo-theme-icarus/tree/site"><code>site</code>分支</a>。 此外，你也可能在<a href="https://gitter.im/hexo-theme-icarus/">Gitter</a>上获得其他Icarus用户的帮助。</h4><p><strong>额外资源</strong></p>
-<p>下面是一些帮助你进一步个性化你的站点的其他资源。 你也可以<a href="https://github.com/ppoffice/hexo-theme-icarus/edit/site/source/_posts/zh-CN/Getting-Started.md">点击此处</a>来提交你的Icarus教程。</p>
-<p><a href="https://hexo.io/zh-cn/docs/index.html"> Hexo中文文档</a><a href="https://removeif.github.io/theme/博客源码分享.html"> 博客源码分享 by 辣椒の酱</a><a href="https://www.imaegoo.com/2020/icarus-3-guide/"> hexo-theme-icarus 3 食用经验分享 by iMaeGoo</a><a href="https://www.imaegoo.com/2020/icarus-with-bulma/"> 活用 Bulma 美化 Icarus 文章 by iMaeGoo</a></p>
-]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2021/05/05/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -44,6 +20,37 @@
       <tags>
         <tag>centOS</tag>
         <tag>tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2021/05/07/test/</url>
+    <content><![CDATA[<p>在你继续安装Icarus之前，请先花些时间阅览<a href="https://hexo.io/">Hexo文档</a>。 如要安装Icarus，你可以选择如下两种方式中的任意一种：</p>
+<ul>
+<li><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/uncategorized/icarus快速上手/#install-source">从源码安装</a></li>
+<li><a href="https://blog.zhangruipeng.me/hexo-theme-icarus/uncategorized/icarus快速上手/#install-npm">使用NPM安装</a></li>
+</ul>
+<p>从GitHub的仓库中下载源码的压缩包并解压到你Hexo站点的主题目录中。 或者，你可以使用Git来克隆Icarus的代码仓库到<code>themes</code>目录下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash&#x2F;命令行</span><br><span class="line"></span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus -b &lt;version number&gt; --depth 1</span><br></pre></td></tr></table></figure>
+<p>你可以省略<code>-b &lt;version number&gt;</code>来获取Icarus的最新开发版本。 如果你想同时下载Git仓库的完整提交历史，请同时省略<code>--depth 1</code>。 另外，你也可以使用下面的命令将Icarus安装为Git子模块(submodule)：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Git Bash&#x2F;命令行</span><br><span class="line"></span><br><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-icarus.git themes&#x2F;icarus</span><br></pre></td></tr></table></figure>
+<hr>
+<p>接下来，在你的站点的<code>_config.yml</code>文件中的开启Icarus：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"></span><br><span class="line">theme: icarus</span><br></pre></td></tr></table></figure>
+<p>或使用<code>hexo</code>命令修改主题为Icarus:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令行</span><br><span class="line"></span><br><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
+<p>最后，使用如下命令来启动Hexo本地测试服务器并开始创作。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">命令行</span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>如需了解更多主题、挂件、和插件相关的信息，请查看 <a href="https://blog.zhangruipeng.me/hexo-theme-icarus/tags/Icarus用户指南/">Icarus用户指南</a>。 你也可以参考本站的源代码来获取更多的使用示例。 本站源代码位于GitHub上Icarus代码仓库的<a href="https://github.com/ppoffice/hexo-theme-icarus/tree/site"><code>site</code>分支</a>。 此外，你也可能在<a href="https://gitter.im/hexo-theme-icarus/">Gitter</a>上获得其他Icarus用户的帮助。</p>
+<p><strong>额外资源</strong></p>
+<p>下面是一些帮助你进一步个性化你的站点的其他资源。 你也可以<a href="https://github.com/ppoffice/hexo-theme-icarus/edit/site/source/_posts/zh-CN/Getting-Started.md">点击此处</a>来提交你的Icarus教程。</p>
+<p><a href="https://hexo.io/zh-cn/docs/index.html"> Hexo中文文档</a><a href="https://removeif.github.io/theme/博客源码分享.html"> 博客源码分享 by 辣椒の酱</a><a href="https://www.imaegoo.com/2020/icarus-3-guide/"> hexo-theme-icarus 3 食用经验分享 by iMaeGoo</a><a href="https://www.imaegoo.com/2020/icarus-with-bulma/"> 活用 Bulma 美化 Icarus 文章 by iMaeGoo</a></p>
+]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>
