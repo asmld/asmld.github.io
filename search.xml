@@ -23,127 +23,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Python基础练习&amp;解答</title>
-    <url>/2021/05/13/Python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0-%E8%A7%A3%E7%AD%94/</url>
-    <content><![CDATA[<p>一些Python基础练习题的分析解答，参考<a href="https://www.runoob.com/python/python-100-examples.html">Python 100例|菜鸟教程</a>，源码文件已上传个人Github，点击<a href="https://github.com/asmld/Python/tree/master/Runoob">这里</a>查看。</p>
-<ul>
-<li><a href="#Question-1">Question 1 ~ 5</a></li>
-<li><a href="#Question-6">Question 6 ~ 10</a></li>
-</ul>
-<hr>
-<h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h3><p><strong>题目描述</strong>：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？</p>
-<blockquote>
-<p><strong>提示</strong>：通过三层嵌套循环来实现</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">共有 24 个数满足条件</span><br><span class="line">它们分别是： [123, 124, 132, 134, 142, 143, 213, 214, 231, 234, 241, 243, 312, 314, 321, 324, 341, 342, 412, 413, 421, 423, 431, 432]</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question1 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="number">0</span></span><br><span class="line">num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            <span class="keyword">if</span> i != j <span class="keyword">and</span> j != k <span class="keyword">and</span> k != i:</span><br><span class="line">                n = n + <span class="number">1</span></span><br><span class="line">                num.append(<span class="number">100</span> * i + <span class="number">10</span> * j + k)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;共有&#x27;</span>, n, <span class="string">&#x27;个数满足条件&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;它们分别是：&#x27;</span>, num)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h3><p><strong>题目描述</strong>：企业发放的奖金根据利润提成。利润低于或等于10万元时，奖金可提成10%；利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分可提成7.5%；利润20万到40万之间时，高于20万元的部分，可提成5%；40万到60万之间时，高于40万元的部分，可提成3%；60万到100万之间时，高于60万元的部分，可提成1.5%，高于100万元时，超过100万元的部分按1%提成。输入当月利润（万元），输出应发放奖金总数（万元，保留两位小数）。</p>
-<blockquote>
-<p><strong>提示</strong>：可通过 <code>if-elif-else</code> 语句实现</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入当月利润（万元）：33</span><br><span class="line">应发奖金2.40万元</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question2 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">a = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入当月利润（万元）：&#x27;</span>))</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span> &lt;= a &lt;= <span class="number">10</span>:</span><br><span class="line">    b = <span class="number">0.1</span> * a</span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">20</span>:</span><br><span class="line">    b = <span class="number">1</span> + (a - <span class="number">10</span>) * <span class="number">0.075</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">40</span>:</span><br><span class="line">    b = <span class="number">1.75</span> + (a - <span class="number">20</span>) * <span class="number">0.05</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">60</span>:</span><br><span class="line">    b = <span class="number">2.75</span> + (a - <span class="number">40</span>) * <span class="number">0.03</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">100</span>:</span><br><span class="line">    b = <span class="number">3.35</span> + (a - <span class="number">60</span>) * <span class="number">0.015</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    b = <span class="number">3.95</span> + (a - <span class="number">100</span>) * <span class="number">0.01</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;应发奖金%.2f万元&#x27;</span> % b)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question 3"></a>Question 3</h3><p><strong>题目描述</strong>：求所有不小于-100的整数，满足加上100后是一个完全平方数，再加上168又是一个完全平方数。</p>
-<blockquote>
-<p>提示：通过数学推导确定数的范围</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[-99, 21, 261, 1581]</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question3 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">84</span>):</span><br><span class="line">    b = (a ** <span class="number">2</span> + <span class="number">168</span>) ** <span class="number">0.5</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="built_in">int</span>(b):</span><br><span class="line">        nums.append(a ** <span class="number">2</span> - <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(nums)</span><br></pre></td></tr></table></figure>
-<p><strong>分析</strong>：</p>
-<ol>
-<li><p>确定范围：</p>
-<div style="position:relative; height:100%; overflow-y:auto">
-$$
-\begin{split}
-&n+100=a^2,n+268=b^2\Rightarrow b^2-a^2=168\\
-&\Rightarrow b>a\Rightarrow b\geq a+1\\
-&168=b^2-a^2\geq (a+1)^2-a^2=2a+1\\
-&\Rightarrow a<84
-\end{split}
-$$
-</div>
-</li>
-<li><p>只需通过循环求出所有满足$\sqrt{a^2+168}\in\mathbb{Z}$的 <code>a</code></p>
-</li>
-<li>$a^2-100$即为要求的 <code>n</code> </li>
-</ol>
-<h3 id="Question-4"><a href="#Question-4" class="headerlink" title="Question 4"></a>Question 4</h3><p><strong>题目描述</strong>：输入某年某月某日，输出这一天是这一年的第几天。（输入格式：Y-M-D，如2021-4-18）</p>
-<blockquote>
-<p><strong>提示</strong>：分为平年和闰年两种情况</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入日期（如2021-4-18）：2021-1-23</span><br><span class="line">2021-1-23是2021年的第23天</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question4 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">date = <span class="built_in">input</span>(<span class="string">&#x27;请输入日期（如2021-4-18）：&#x27;</span>)</span><br><span class="line">pattern = <span class="string">r&#x27;^\d&#123;1,4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;$&#x27;</span></span><br><span class="line">result = re.match(pattern, date)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> result:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&#x27;Invalid date form &quot;%s&quot;&#x27;</span> % date)</span><br><span class="line">date_list = date.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">year = <span class="built_in">int</span>(date_list[<span class="number">0</span>])</span><br><span class="line">month = <span class="built_in">int</span>(date_list[<span class="number">1</span>])</span><br><span class="line">day = <span class="built_in">int</span>(date_list[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span>) <span class="keyword">or</span> year % <span class="number">400</span> == <span class="number">0</span>:</span><br><span class="line">    day_list = [<span class="number">31</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    day_list = [<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line"><span class="keyword">if</span> month &gt; <span class="number">12</span> <span class="keyword">or</span> day &gt; day_list[month - <span class="number">1</span>]:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&#x27;Invalid date form &quot;%s&quot;&#x27;</span> % date)</span><br><span class="line">n = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(month - <span class="number">1</span>):</span><br><span class="line">    n = n + day_list[i]</span><br><span class="line">n = n + day</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;%s是%d年的第%d天&#x27;</span> % (date, year, n))</span><br></pre></td></tr></table></figure>
-<p><strong>分析</strong>：</p>
-<ol>
-<li>通过 <a href="https://www.runoob.com/python/att-string-split.html"><code>split</code></a> 方法从输入的字符串中获取到年、月、日</li>
-<li>判断是闰年还是平年</li>
-<li>根据月、日分析计算出天数</li>
-<li>利用<a href="https://www.runoob.com/python/python-reg-expressions.html">正则表达式</a>判断输入的格式是否正确并进行<a href="https://www.runoob.com/python/python-exceptions.html">异常处理</a>（进阶）</li>
-</ol>
-<h3 id="Question-5"><a href="#Question-5" class="headerlink" title="Question 5"></a>Question 5</h3><p><strong>题目描述</strong>：先输入一个正整数 <code>n</code>，然后输入 <code>n</code> 个整数，从大到小输出这些数。</p>
-<blockquote>
-<p><strong>提示</strong>：把输入的数放进列表中，再使用 <a href="https://www.runoob.com/python3/python3-att-list-sort.html"><code>sort</code></a> 方法</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">请输入第1个数：6</span><br><span class="line">请输入第2个数：8</span><br><span class="line">请输入第3个数：3</span><br><span class="line">请输入第4个数：4</span><br><span class="line">8 6 4 3 </span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question5 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    num.append(<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入第%d个数：&#x27;</span> % (i + <span class="number">1</span>))))</span><br><span class="line">num.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> num:</span><br><span class="line">    <span class="built_in">print</span>(i, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-6"><a href="#Question-6" class="headerlink" title="Question 6"></a>Question 6</h3><p><strong>题目描述</strong>：输入 <code>n</code> ，输出<a href="https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/99145">斐波拉契数列</a>的第 <code>n</code> 项</p>
-<blockquote>
-<p><strong>提示</strong>：通过循环或者函数的递归实现</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入项数：10</span><br><span class="line">55</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>递归法 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span> <span class="keyword">or</span> x == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> f(x - <span class="number">1</span>) + f(x - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入项数：&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(f(n))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><figcaption><span>循环法 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入项数：&#x27;</span>))</span><br><span class="line">b = c = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">2</span>):</span><br><span class="line">    b, c = c, b + c</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-7"><a href="#Question-7" class="headerlink" title="Question 7"></a>Question 7</h3><p><strong>题目描述</strong>：输入一个列表（各项之间以空格分隔），提取出列表中的第0,3,6……项并反向输出。</p>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入列表：1 2 3 4 5 6 7 8 9</span><br><span class="line">[&#39;7&#39;, &#39;4&#39;, &#39;1&#39;]</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question7 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">a = <span class="built_in">input</span>(<span class="string">&#x27;请输入列表：&#x27;</span>).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">b = a[::<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(b[::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="Question-8"><a href="#Question-8" class="headerlink" title="Question 8"></a>Question 8</h3><p><strong>题目描述</strong>：输出九九乘法表</p>
-<blockquote>
-<p><strong>提示</strong>：通过双层循环实现</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1X1&#x3D;1  1X2&#x3D;2  1X3&#x3D;3  1X4&#x3D;4  1X5&#x3D;5  1X6&#x3D;6  1X7&#x3D;7  1X8&#x3D;8  1X9&#x3D;9  </span><br><span class="line">2X2&#x3D;4  2X3&#x3D;6  2X4&#x3D;8  2X5&#x3D;10 2X6&#x3D;12 2X7&#x3D;14 2X8&#x3D;16 2X9&#x3D;18 </span><br><span class="line">3X3&#x3D;9  3X4&#x3D;12 3X5&#x3D;15 3X6&#x3D;18 3X7&#x3D;21 3X8&#x3D;24 3X9&#x3D;27 </span><br><span class="line">4X4&#x3D;16 4X5&#x3D;20 4X6&#x3D;24 4X7&#x3D;28 4X8&#x3D;32 4X9&#x3D;36 </span><br><span class="line">5X5&#x3D;25 5X6&#x3D;30 5X7&#x3D;35 5X8&#x3D;40 5X9&#x3D;45 </span><br><span class="line">6X6&#x3D;36 6X7&#x3D;42 6X8&#x3D;48 6X9&#x3D;54 </span><br><span class="line">7X7&#x3D;49 7X8&#x3D;56 7X9&#x3D;63 </span><br><span class="line">8X8&#x3D;64 8X9&#x3D;72 </span><br><span class="line">9X9&#x3D;81</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question8 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="number">10</span>):</span><br><span class="line">        r = <span class="built_in">str</span>(i * j)</span><br><span class="line">        blank = <span class="string">&#x27; &#x27;</span> <span class="keyword">if</span> <span class="built_in">len</span>(r) == <span class="number">1</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(i)+<span class="string">&#x27;X&#x27;</span>+<span class="built_in">str</span>(j)+<span class="string">&#x27;=&#x27;</span>+r+blank, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
-<h3 id="Question-9"><a href="#Question-9" class="headerlink" title="Question 9"></a>Question 9</h3><p><strong>题目描述</strong>：实现五秒钟的倒计时</p>
-<blockquote>
-<p><strong>提示</strong>：利用 <a href="https://www.runoob.com/python/att-time-sleep.html"><code>time.sleep()</code></a> 方法实现</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question9 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Question-10"><a href="#Question-10" class="headerlink" title="Question 10"></a>Question 10</h3><p><strong>题目描述</strong>：输出101到200之间的素数</p>
-<blockquote>
-<p><strong>提示</strong>：素数判断条件：$\forall n\in[2,\sqrt{a}],n\nmid a$</p>
-</blockquote>
-<p><strong>输出样例</strong>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199</span><br></pre></td></tr></table></figure>
-<p><strong>参考源码</strong>：</p>
-<figure class="highlight python"><figcaption><span>Question10 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(x**<span class="number">0.5</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> x % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">101</span>, <span class="number">201</span>):</span><br><span class="line">    <span class="keyword">if</span> prime(i):</span><br><span class="line">        <span class="built_in">print</span>(i, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
-        <tag>练习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多元微积分常用公式总结</title>
     <url>/2021/05/13/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<blockquote>
@@ -291,15 +170,139 @@ $$
 $$
 </div>
 
-<p><div style="position:relative; height:100%; overflow-y:auto"></p>
-<script type="math/tex; mode=display">
-\boldsymbol{r}_C=\frac{\iiint_\Omega\boldsymbol{r}\cdot\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}</script><p>&lt;/div&gt;</p>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\boldsymbol{r}_C=\frac{\iiint_\Omega\boldsymbol{r}\cdot\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
+$$
+</div>
+
 <h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3>]]></content>
       <categories>
         <category>数学</category>
       </categories>
       <tags>
         <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python基础练习&amp;解答</title>
+    <url>/2021/05/13/Python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0-%E8%A7%A3%E7%AD%94/</url>
+    <content><![CDATA[<p>一些Python基础练习题的分析解答，参考<a href="https://www.runoob.com/python/python-100-examples.html">Python 100例|菜鸟教程</a>，源码文件已上传个人Github，点击<a href="https://github.com/asmld/Python/tree/master/Runoob">这里</a>查看。</p>
+<ul>
+<li><a href="#Question-1">Question 1 ~ 5</a></li>
+<li><a href="#Question-6">Question 6 ~ 10</a></li>
+</ul>
+<hr>
+<h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h3><p><strong>题目描述</strong>：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？</p>
+<blockquote>
+<p><strong>提示</strong>：通过三层嵌套循环来实现</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">共有 24 个数满足条件</span><br><span class="line">它们分别是： [123, 124, 132, 134, 142, 143, 213, 214, 231, 234, 241, 243, 312, 314, 321, 324, 341, 342, 412, 413, 421, 423, 431, 432]</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question1 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="number">0</span></span><br><span class="line">num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            <span class="keyword">if</span> i != j <span class="keyword">and</span> j != k <span class="keyword">and</span> k != i:</span><br><span class="line">                n = n + <span class="number">1</span></span><br><span class="line">                num.append(<span class="number">100</span> * i + <span class="number">10</span> * j + k)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;共有&#x27;</span>, n, <span class="string">&#x27;个数满足条件&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;它们分别是：&#x27;</span>, num)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-2"><a href="#Question-2" class="headerlink" title="Question 2"></a>Question 2</h3><p><strong>题目描述</strong>：企业发放的奖金根据利润提成。利润低于或等于10万元时，奖金可提成10%；利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分可提成7.5%；利润20万到40万之间时，高于20万元的部分，可提成5%；40万到60万之间时，高于40万元的部分，可提成3%；60万到100万之间时，高于60万元的部分，可提成1.5%，高于100万元时，超过100万元的部分按1%提成。输入当月利润（万元），输出应发放奖金总数（万元，保留两位小数）。</p>
+<blockquote>
+<p><strong>提示</strong>：可通过 <code>if-elif-else</code> 语句实现</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入当月利润（万元）：33</span><br><span class="line">应发奖金2.40万元</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question2 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">a = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入当月利润（万元）：&#x27;</span>))</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">0</span> &lt;= a &lt;= <span class="number">10</span>:</span><br><span class="line">    b = <span class="number">0.1</span> * a</span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">20</span>:</span><br><span class="line">    b = <span class="number">1</span> + (a - <span class="number">10</span>) * <span class="number">0.075</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">40</span>:</span><br><span class="line">    b = <span class="number">1.75</span> + (a - <span class="number">20</span>) * <span class="number">0.05</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">60</span>:</span><br><span class="line">    b = <span class="number">2.75</span> + (a - <span class="number">40</span>) * <span class="number">0.03</span></span><br><span class="line"><span class="keyword">elif</span> a &lt;= <span class="number">100</span>:</span><br><span class="line">    b = <span class="number">3.35</span> + (a - <span class="number">60</span>) * <span class="number">0.015</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    b = <span class="number">3.95</span> + (a - <span class="number">100</span>) * <span class="number">0.01</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;应发奖金%.2f万元&#x27;</span> % b)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-3"><a href="#Question-3" class="headerlink" title="Question 3"></a>Question 3</h3><p><strong>题目描述</strong>：求所有不小于-100的整数，满足加上100后是一个完全平方数，再加上168又是一个完全平方数。</p>
+<blockquote>
+<p>提示：通过数学推导确定数的范围</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[-99, 21, 261, 1581]</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question3 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">nums = []</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">84</span>):</span><br><span class="line">    b = (a ** <span class="number">2</span> + <span class="number">168</span>) ** <span class="number">0.5</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="built_in">int</span>(b):</span><br><span class="line">        nums.append(a ** <span class="number">2</span> - <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(nums)</span><br></pre></td></tr></table></figure>
+<p><strong>分析</strong>：</p>
+<ol>
+<li><p>确定范围：</p>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\begin{split}
+&n+100=a^2,n+268=b^2\Rightarrow b^2-a^2=168\\
+&\Rightarrow b>a\Rightarrow b\geq a+1\\
+&168=b^2-a^2\geq (a+1)^2-a^2=2a+1\\
+&\Rightarrow a<84
+\end{split}
+$$
+</div>
+</li>
+<li><p>只需通过循环求出所有满足$\sqrt{a^2+168}\in\mathbb{Z}$的 <code>a</code></p>
+</li>
+<li>$a^2-100$即为要求的 <code>n</code> </li>
+</ol>
+<h3 id="Question-4"><a href="#Question-4" class="headerlink" title="Question 4"></a>Question 4</h3><p><strong>题目描述</strong>：输入某年某月某日，输出这一天是这一年的第几天。（输入格式：Y-M-D，如2021-4-18）</p>
+<blockquote>
+<p><strong>提示</strong>：分为平年和闰年两种情况</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入日期（如2021-4-18）：2021-1-23</span><br><span class="line">2021-1-23是2021年的第23天</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question4 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">date = <span class="built_in">input</span>(<span class="string">&#x27;请输入日期（如2021-4-18）：&#x27;</span>)</span><br><span class="line">pattern = <span class="string">r&#x27;^\d&#123;1,4&#125;-\d&#123;1,2&#125;-\d&#123;1,2&#125;$&#x27;</span></span><br><span class="line">result = re.match(pattern, date)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> result:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&#x27;Invalid date form &quot;%s&quot;&#x27;</span> % date)</span><br><span class="line">date_list = date.split(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">year = <span class="built_in">int</span>(date_list[<span class="number">0</span>])</span><br><span class="line">month = <span class="built_in">int</span>(date_list[<span class="number">1</span>])</span><br><span class="line">day = <span class="built_in">int</span>(date_list[<span class="number">2</span>])</span><br><span class="line"><span class="keyword">if</span> (year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span>) <span class="keyword">or</span> year % <span class="number">400</span> == <span class="number">0</span>:</span><br><span class="line">    day_list = [<span class="number">31</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    day_list = [<span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line"><span class="keyword">if</span> month &gt; <span class="number">12</span> <span class="keyword">or</span> day &gt; day_list[month - <span class="number">1</span>]:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">&#x27;Invalid date form &quot;%s&quot;&#x27;</span> % date)</span><br><span class="line">n = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(month - <span class="number">1</span>):</span><br><span class="line">    n = n + day_list[i]</span><br><span class="line">n = n + day</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;%s是%d年的第%d天&#x27;</span> % (date, year, n))</span><br></pre></td></tr></table></figure>
+<p><strong>分析</strong>：</p>
+<ol>
+<li>通过 <a href="https://www.runoob.com/python/att-string-split.html"><code>split</code></a> 方法从输入的字符串中获取到年、月、日</li>
+<li>判断是闰年还是平年</li>
+<li>根据月、日分析计算出天数</li>
+<li>利用<a href="https://www.runoob.com/python/python-reg-expressions.html">正则表达式</a>判断输入的格式是否正确并进行<a href="https://www.runoob.com/python/python-exceptions.html">异常处理</a>（进阶）</li>
+</ol>
+<h3 id="Question-5"><a href="#Question-5" class="headerlink" title="Question 5"></a>Question 5</h3><p><strong>题目描述</strong>：先输入一个正整数 <code>n</code>，然后输入 <code>n</code> 个整数，从大到小输出这些数。</p>
+<blockquote>
+<p><strong>提示</strong>：把输入的数放进列表中，再使用 <a href="https://www.runoob.com/python3/python3-att-list-sort.html"><code>sort</code></a> 方法</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">请输入第1个数：6</span><br><span class="line">请输入第2个数：8</span><br><span class="line">请输入第3个数：3</span><br><span class="line">请输入第4个数：4</span><br><span class="line">8 6 4 3 </span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question5 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    num.append(<span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入第%d个数：&#x27;</span> % (i + <span class="number">1</span>))))</span><br><span class="line">num.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> num:</span><br><span class="line">    <span class="built_in">print</span>(i, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-6"><a href="#Question-6" class="headerlink" title="Question 6"></a>Question 6</h3><p><strong>题目描述</strong>：输入 <code>n</code> ，输出<a href="https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/99145">斐波拉契数列</a>的第 <code>n</code> 项</p>
+<blockquote>
+<p><strong>提示</strong>：通过循环或者函数的递归实现</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入项数：10</span><br><span class="line">55</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>递归法 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span> <span class="keyword">or</span> x == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> f(x - <span class="number">1</span>) + f(x - <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入项数：&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(f(n))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>循环法 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入项数：&#x27;</span>))</span><br><span class="line">b = c = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">2</span>):</span><br><span class="line">    b, c = c, b + c</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-7"><a href="#Question-7" class="headerlink" title="Question 7"></a>Question 7</h3><p><strong>题目描述</strong>：输入一个列表（各项之间以空格分隔），提取出列表中的第0,3,6……项并反向输出。</p>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">请输入列表：1 2 3 4 5 6 7 8 9</span><br><span class="line">[&#39;7&#39;, &#39;4&#39;, &#39;1&#39;]</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question7 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line">a = <span class="built_in">input</span>(<span class="string">&#x27;请输入列表：&#x27;</span>).split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">b = a[::<span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span>(b[::-<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="Question-8"><a href="#Question-8" class="headerlink" title="Question 8"></a>Question 8</h3><p><strong>题目描述</strong>：输出九九乘法表</p>
+<blockquote>
+<p><strong>提示</strong>：通过双层循环实现</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1X1&#x3D;1  1X2&#x3D;2  1X3&#x3D;3  1X4&#x3D;4  1X5&#x3D;5  1X6&#x3D;6  1X7&#x3D;7  1X8&#x3D;8  1X9&#x3D;9  </span><br><span class="line">2X2&#x3D;4  2X3&#x3D;6  2X4&#x3D;8  2X5&#x3D;10 2X6&#x3D;12 2X7&#x3D;14 2X8&#x3D;16 2X9&#x3D;18 </span><br><span class="line">3X3&#x3D;9  3X4&#x3D;12 3X5&#x3D;15 3X6&#x3D;18 3X7&#x3D;21 3X8&#x3D;24 3X9&#x3D;27 </span><br><span class="line">4X4&#x3D;16 4X5&#x3D;20 4X6&#x3D;24 4X7&#x3D;28 4X8&#x3D;32 4X9&#x3D;36 </span><br><span class="line">5X5&#x3D;25 5X6&#x3D;30 5X7&#x3D;35 5X8&#x3D;40 5X9&#x3D;45 </span><br><span class="line">6X6&#x3D;36 6X7&#x3D;42 6X8&#x3D;48 6X9&#x3D;54 </span><br><span class="line">7X7&#x3D;49 7X8&#x3D;56 7X9&#x3D;63 </span><br><span class="line">8X8&#x3D;64 8X9&#x3D;72 </span><br><span class="line">9X9&#x3D;81</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question8 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="number">10</span>):</span><br><span class="line">        r = <span class="built_in">str</span>(i * j)</span><br><span class="line">        blank = <span class="string">&#x27; &#x27;</span> <span class="keyword">if</span> <span class="built_in">len</span>(r) == <span class="number">1</span> <span class="keyword">else</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(i)+<span class="string">&#x27;X&#x27;</span>+<span class="built_in">str</span>(j)+<span class="string">&#x27;=&#x27;</span>+r+blank, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="Question-9"><a href="#Question-9" class="headerlink" title="Question 9"></a>Question 9</h3><p><strong>题目描述</strong>：实现五秒钟的倒计时</p>
+<blockquote>
+<p><strong>提示</strong>：利用 <a href="https://www.runoob.com/python/att-time-sleep.html"><code>time.sleep()</code></a> 方法实现</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question9 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Question-10"><a href="#Question-10" class="headerlink" title="Question 10"></a>Question 10</h3><p><strong>题目描述</strong>：输出101到200之间的素数</p>
+<blockquote>
+<p><strong>提示</strong>：素数判断条件：$\forall n\in[2,\sqrt{a}],n\nmid a$</p>
+</blockquote>
+<p><strong>输出样例</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197 199</span><br></pre></td></tr></table></figure>
+<p><strong>参考源码</strong>：</p>
+<figure class="highlight python"><figcaption><span>Question10 >folded</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prime</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(x**<span class="number">0.5</span>)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> x % i == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">101</span>, <span class="number">201</span>):</span><br><span class="line">    <span class="keyword">if</span> prime(i):</span><br><span class="line">        <span class="built_in">print</span>(i, end=<span class="string">&#x27; &#x27;</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>练习</tag>
       </tags>
   </entry>
 </search>
