@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo+Icarus博客主题配置</title>
+    <url>/2021/05/13/Hexo-Icarus%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p> 本文仅介绍部分Icarus主题的个性化配置，更多搭建博客有关信息请参考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Hexo官方文档</a>、<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus官方文档</a>。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>打开命令行，进入博客文件夹，输入以下命令便可获得Icarus主题：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</span><br></pre></td></tr></table></figure>
+<p>此时博客根目录下会生成 <code>_config.icarus.yml</code> 文件，大部分基础配置将在此文件中完成。同时 <code>\theme</code> 目录下会生成 <code>\icarus</code> 目录，其中有主题的系统文件目录 <code>\.github</code>、<code>\include</code>，语言文件目录 <code>\language</code>，样式文件目录 <code>\layout</code>，资源文件目录 <code>\source</code>，其中 <code>\source\img</code> 目录用于存放博客中的图片文件，启动Hexo服务时将会同步到博客根目录下 <code>\public\img</code> 中，便可在博文中通过地址 <code>\img\...</code> 直接访问。</p>
+<p>将博客主题设置为Icarus可将博客配置文件 <code>_config.yml</code> 中 <code>theme</code> 属性的值修改为 <code>icarus</code>，也可以在命令提示符中输入以下命令实现：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
+<p>每次修改配置或者增添了新的文件后，在命令行中依次输入以下命令将修改提交并部署到博客上。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h1 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h1><h2 id="1-网站标题head"><a href="#1-网站标题head" class="headerlink" title="1.网站标题head"></a>1.网站标题head</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">head:</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">/img/favicon.svg</span>  <span class="comment"># 网站图标</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">manifest:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">Your</span> <span class="string">Name</span>  <span class="comment"># 网站显示名称</span></span><br><span class="line">        <span class="attr">short_name:</span> <span class="string">Name</span>  <span class="comment"># 网站简称（显示不完全名时显示）</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-导航栏navbar"><a href="#2-导航栏navbar" class="headerlink" title="2.导航栏navbar"></a>2.导航栏navbar</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">    	<span class="comment"># 名称: 文件夹</span></span><br><span class="line">        <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">        <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="string">关于:</span> <span class="string">/about</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Icarus</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python基础练习&amp;解答</title>
     <url>/2021/05/13/Python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0-%E8%A7%A3%E7%AD%94/</url>
     <content><![CDATA[<p>一些Python基础练习题的分析解答，参考<a href="https://www.runoob.com/python/python-100-examples.html">Python 100例|菜鸟教程</a>，源码文件已上传个人Github，点击<a href="https://github.com/asmld/Python/tree/master/Runoob">这里</a>查看。</p>
@@ -268,41 +290,47 @@ $$
 \rho=\mu(x,y,z),M=\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
 </div>
-
 <div style="position:relative; height:100%; overflow-y:auto">
 $$
-\boldsymbol{r}_C=\frac{\iiint_\Omega\boldsymbol{r}\cdot\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
+\boldsymbol{r}_c=\frac{\iiint_\Omega\boldsymbol{r}\cdot\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
 $$
 </div>
 
-<h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3>]]></content>
+<h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+J_x=\iiint_\Omega(y^2+z^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+J_y=\iiint_\Omega(z^2+x^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
+J_z=\iiint_\Omega(x^2+y^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
+$$
+</div>
+
+<h3 id="4-4-万有引力"><a href="#4-4-万有引力" class="headerlink" title="4.4 万有引力"></a>4.4 万有引力</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+F_x=\iiint_\Omega\frac{Gm_0(x-x_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}^3}\\
+F_y=\iiint_\Omega\frac{Gm_0(y-y_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}^3}\\
+F_z=\iiint_\Omega\frac{Gm_0(z-z_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}^3}
+$$
+</div>
+
+<h2 id="5-曲线积分"><a href="#5-曲线积分" class="headerlink" title="5. 曲线积分"></a>5. 曲线积分</h2><h3 id="5-1-第一型曲线积分"><a href="#5-1-第一型曲线积分" class="headerlink" title="5.1 第一型曲线积分"></a>5.1 第一型曲线积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\int_Lf\mathrm{d}l=\int_\alpha^\beta f(x(t),y(t),z(t))\cdot\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\mathrm{d}t
+$$
+</div>
+
+<h3 id="5-2-第二型曲线积分"><a href="#5-2-第二型曲线积分" class="headerlink" title="5.2 第二型曲线积分"></a>5.2 第二型曲线积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\boldsymbol{\tau}=\frac{(x'(t),y'(t),z'(t))}{\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}},\mathrm{d}l=\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\mathrm{d}t\\
+\boldsymbol{v}=(P(x,y,z),Q(x,y,z),R(x,y,z))\\
+\int_L\boldsymbol{v}\mathrm{d}\boldsymbol{l}=\int_L\boldsymbol{v}\cdot\boldsymbol{l}\mathrm{d}l=\int_\alpha^\beta\left[Px'(t)+Qy'(t)+Rz'(t)\right]\mathrm{d}t
+$$
+</div>
+]]></content>
       <categories>
         <category>数学</category>
       </categories>
       <tags>
         <tag>微积分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+Icarus博客主题配置</title>
-    <url>/2021/05/13/Hexo-Icarus%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p> 本文仅介绍部分Icarus主题的个性化配置，更多搭建博客有关信息请参考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Hexo官方文档</a>、<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus官方文档</a>。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>打开命令行，进入博客文件夹，输入以下命令便可获得Icarus主题：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</span><br></pre></td></tr></table></figure>
-<p>此时博客根目录下会生成 <code>_config.icarus.yml</code> 文件，大部分基础配置将在此文件中完成。同时 <code>\theme</code> 目录下会生成 <code>\icarus</code> 目录，其中有主题的系统文件目录 <code>\.github</code>、<code>\include</code>，语言文件目录 <code>\language</code>，样式文件目录 <code>\layout</code>，资源文件目录 <code>\source</code>，其中 <code>\source\img</code> 目录用于存放博客中的图片文件，启动Hexo服务时将会同步到博客根目录下 <code>\public\img</code> 中，便可在博文中通过地址 <code>\img\...</code> 直接访问。</p>
-<p>将博客主题设置为Icarus可将博客配置文件 <code>_config.yml</code> 中 <code>theme</code> 属性的值修改为 <code>icarus</code>，也可以在命令提示符中输入以下命令实现：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-<p>每次修改配置或者增添了新的文件后，在命令行中依次输入以下命令将修改提交并部署到博客上。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h1 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h1><h2 id="1-网站标题head"><a href="#1-网站标题head" class="headerlink" title="1.网站标题head"></a>1.网站标题head</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">head:</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">/img/favicon.svg</span>  <span class="comment"># 网站图标</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">manifest:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">Your</span> <span class="string">Name</span>  <span class="comment"># 网站显示名称</span></span><br><span class="line">        <span class="attr">short_name:</span> <span class="string">Name</span>  <span class="comment"># 网站简称（显示不完全名时显示）</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-导航栏navbar"><a href="#2-导航栏navbar" class="headerlink" title="2.导航栏navbar"></a>2.导航栏navbar</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">    	<span class="comment"># 名称: 文件夹</span></span><br><span class="line">        <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">        <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="string">关于:</span> <span class="string">/about</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Icarus</tag>
       </tags>
   </entry>
 </search>
