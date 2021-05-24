@@ -443,7 +443,7 @@ $$
 <ul>
 <li><p>若$\frac{P’_y-Q’_x}{Q}=\varphi(x)$仅为$x$的函数，则$\mu(x)=\exp\left(\int\varphi(x)\mathrm dx\right)$</p>
 </li>
-<li><p>若$\frac{P’_y-Q’_x}{-P}=\psi(y)$仅为$y$的函数，则$\mu(x)=\exp\left(\int\psi(y)\mathrm dy\right)$</p>
+<li><p>若$\frac{P’_y-Q’_x}{-P}=\psi(y)$仅为$y$的函数，则$\mu(y)=\exp\left(\int\psi(y)\mathrm dy\right)$</p>
 </li>
 </ul>
 ]]></content>
