@@ -165,14 +165,15 @@ $$
 </div>
 <h3 id="4-2-物体的质心"><a href="#4-2-物体的质心" class="headerlink" title="4.2 物体的质心"></a>4.2 物体的质心</h3><div style="position:relative; height:100%; overflow-y:auto">
 $$
-\rho=\mu(x,y,z),M=\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
+M=\iiint_\Omega\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
 </div>
 <div style="position:relative; height:100%; overflow-y:auto">
 $$
-\boldsymbol{r}_c=\frac{\iiint_\Omega\boldsymbol{r}\cdot\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\mu(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
+\boldsymbol{r}_c=\frac{\iiint_\Omega\boldsymbol{r}\cdot\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
 $$
 </div>
+
 
 <h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3><div style="position:relative; height:100%; overflow-y:auto">
 $$
@@ -205,9 +206,124 @@ $$
 </div>
 <div style="position:relative; height:100%; overflow-y:auto">
 $$
-\int_L\boldsymbol{v}\mathrm{d}\boldsymbol{l}=\int_L\boldsymbol{v}\cdot\boldsymbol{l}\mathrm{d}l=\int_\alpha^\beta\left[Px'(t)+Qy'(t)+Rz'(t)\right]\mathrm{d}t
+\int_L\boldsymbol{v}\mathrm{d}\boldsymbol{l}=\int_L\boldsymbol{v}\cdot\boldsymbol{\tau}\mathrm{d}l=\pm\int_\alpha^\beta\left[Px'(t)+Qy'(t)+Rz'(t)\right]\mathrm{d}t
 $$
 </div>
+
+<h2 id="6-曲面积分"><a href="#6-曲面积分" class="headerlink" title="6. 曲面积分"></a>6. 曲面积分</h2><h3 id="6-1-第一型曲面积分"><a href="#6-1-第一型曲面积分" class="headerlink" title="6.1 第一型曲面积分"></a>6.1 第一型曲面积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\iint_Sf(x,y,z)\mathrm{d}S=\iint_Df(x(u,v),y(u,v),z(u,v))\Vert\boldsymbol{r}'_u\times\boldsymbol{r}'_v\Vert\mathrm{d}u\mathrm{d}v
+$$
+</div>
+
+<ul>
+<li>Poisson公式<div style="position:relative; height:100%; overflow-y:auto">
+$$
+S=\{(x,y,z)\vert x^2+y^2+z^2=1\}
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\iint_Sf(ax+by+cz)\mathrm{d}S=2\pi\int_{-1}^1f(\sqrt{a^2+b^2+c^2}t)\mathrm{d}t
+$$
+</div>
+
+</li>
+</ul>
+<h3 id="6-2-第二型曲面积分"><a href="#6-2-第二型曲面积分" class="headerlink" title="6.2 第二型曲面积分"></a>6.2 第二型曲面积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\boldsymbol{r}=\boldsymbol{r}(u,v)\,,\,\,\boldsymbol{r}'_u\times\boldsymbol{r}'_v=(A,B,C)\\
+\boldsymbol{v}=(P,Q,R)
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\iint_S\boldsymbol{v}\mathrm{d}\boldsymbol{S}=\pm\iint_S\frac{PA+QB+RC}{\sqrt{A^2+B^2+C^2}}\mathrm{d}S=\pm\iint_D(PA+QB+RC)\mathrm{d}u\mathrm{d}v
+$$
+</div>
+## 7. Green公式及其应用
+
+### 7.1 Green公式
+
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\oint_{\partial D}P\mathrm dx+Q\mathrm dy=\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy
+$$
+</div>
+
+<blockquote>
+<p>$\partial D$是有向曲线，沿$\partial D$正方向前进时，区域$D$总在左侧</p>
+</blockquote>
+<ul>
+<li>闭合曲线围成封闭区域的面积</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\sigma(D)=\iint_D\mathrm dx\mathrm dy=\oint_{\partial D}x\mathrm dy=-\oint_{\partial D}y\mathrm dx=\frac{1}{2}\oint_{\partial D}x\mathrm dy-y\mathrm dx
+$$
+</div>
+
+<ul>
+<li>Green公式的变形</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\oint_{\partial D}\boldsymbol v\cdot\boldsymbol \tau\mathrm dl=\iint_D\nabla\times\boldsymbol v\mathrm dx\mathrm dy\\
+\oint_{\partial D}\boldsymbol v\cdot\boldsymbol n\mathrm dl=\iint_D\nabla\cdot\boldsymbol v\mathrm dx\mathrm dy
+$$
+</div>
+
+<blockquote>
+<p>梯度算子$\nabla=\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y}\right)$，旋度算子$\nabla\times$，散度算子$\nabla\cdot$</p>
+</blockquote>
+<h3 id="7-2-平面向量场"><a href="#7-2-平面向量场" class="headerlink" title="7.2 平面向量场"></a>7.2 平面向量场</h3><ul>
+<li>保守场$\boldsymbol u$：$\int_L\boldsymbol u\mathrm d\boldsymbol l$与路径无关</li>
+<li>有势场$\boldsymbol u$ ：$\exist f,\boldsymbol u=\nabla f$</li>
+<li>无源场$\boldsymbol u$：$\nabla\cdot \boldsymbol u=0$</li>
+<li>无旋场$\boldsymbol u$：$\nabla\times\boldsymbol u=0$</li>
+</ul>
+<ol>
+<li>连续的保守场等价于有势场</li>
+<li>连续可微的保守场一定是无旋场</li>
+<li>单连通区域上的连续可微保守场等价于无旋场</li>
+</ol>
+<h3 id="7-3-恰当方程"><a href="#7-3-恰当方程" class="headerlink" title="7.3 恰当方程"></a>7.3 恰当方程</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+P(x,y)\mathrm dx+Q(x,y)\mathrm dy=0,\,\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}
+$$
+</div>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">$y\mathrm dx+x\mathrm dy=\mathrm d(xy)$</th>
+<th style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{y^2}=\mathrm d\left(\frac{x}{y}\right)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{xy}=\mathrm d\left(\mathrm{ln}\left\vert\frac{x}{y}\right\vert\right)$</td>
+<td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{x^2+y^2}=\mathrm d\left(\arctan\frac{x}{y}\right)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{x^2-y^2}=\frac{1}{2}\mathrm d\left(\ln\left\vert\frac{x-y}{x+y}\right\vert\right)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="7-4-积分因子"><a href="#7-4-积分因子" class="headerlink" title="7.4 积分因子"></a>7.4 积分因子</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\mu(x,y)P(x,y)\mathrm dx+\mu(x,y)Q(x,y)\mathrm dy=0,\,\frac{\partial(\mu Q)}{\partial x}=\frac{\partial(\mu P)}{\partial y}
+$$
+</div>
+
+<ul>
+<li><p>若$\frac{P’_y-Q’_x}{Q}=\varphi(x)$仅为$x$的函数，则$\mu(x)=\exp\left(\int\varphi(x)\mathrm dx\right)$</p>
+</li>
+<li><p>若$\frac{P’_y-Q’_x}{-P}=\psi(y)$仅为$y$的函数，则$\mu(x)=\exp\left(\int\psi(y)\mathrm dy\right)$</p>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>数学</category>
