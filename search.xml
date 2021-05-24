@@ -396,7 +396,7 @@ $$
 </blockquote>
 <h3 id="7-2-平面向量场"><a href="#7-2-平面向量场" class="headerlink" title="7.2 平面向量场"></a>7.2 平面向量场</h3><ul>
 <li>保守场$\boldsymbol u$：$\int_L\boldsymbol u\mathrm d\boldsymbol l$与路径无关</li>
-<li>有势场$\boldsymbol u$ ：$\exist f,\boldsymbol u=\nabla f$</li>
+<li>有势场$\boldsymbol u$ ：$\exists f,\boldsymbol u=\nabla f$</li>
 <li>无源场$\boldsymbol u$：$\nabla\cdot \boldsymbol u=0$</li>
 <li>无旋场$\boldsymbol u$：$\nabla\times\boldsymbol u=0$</li>
 </ul>
@@ -415,11 +415,15 @@ $$
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$y\mathrm dx+x\mathrm dy=\mathrm d(xy)$</th>
-<th style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{y^2}=\mathrm d\left(\frac{x}{y}\right)$</th>
+<th style="text-align:center">常用公式总结</th>
+<th style="text-align:center">常用公式总结</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:center">$y\mathrm dx+x\mathrm dy=\mathrm d(xy)$</td>
+<td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{y^2}=\mathrm d\left(\frac{x}{y}\right)$</td>
+</tr>
 <tr>
 <td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{xy}=\mathrm d\left(\mathrm{ln}\left\vert\frac{x}{y}\right\vert\right)$</td>
 <td style="text-align:center">$\frac{y\mathrm dx-x\mathrm dy}{x^2+y^2}=\mathrm d\left(\arctan\frac{x}{y}\right)$</td>
