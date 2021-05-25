@@ -450,12 +450,12 @@ $$
 </ul>
 <h2 id="8-Gauss公式和Stokes公式"><a href="#8-Gauss公式和Stokes公式" class="headerlink" title="8. Gauss公式和Stokes公式"></a>8. Gauss公式和Stokes公式</h2><h3 id="8-1-Gauss公式"><a href="#8-1-Gauss公式" class="headerlink" title="8.1 Gauss公式"></a>8.1 Gauss公式</h3><div style="position:relative; height:100%; overflow-y:auto">
 $$
-\ooint_{\partial\Omega}P\mathrm dy\land\mathrm dz+Q\mathrm dz\land\mathrm dx+R\mathrm dx\land\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
+\iint_{\partial\Omega}P\mathrm dy\land\mathrm dz+Q\mathrm dz\land\mathrm dx+R\mathrm dx\land\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
 $$
 </div>
 <div style="position:relative; height:100%; overflow-y:auto">
 $$
-\ooint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
+\iint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
 $$
 </div>
 
