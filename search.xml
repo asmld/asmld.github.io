@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo+Icarus博客主题配置</title>
-    <url>/2021/05/13/Hexo-Icarus%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p> 本文仅介绍部分Icarus主题的个性化配置，更多搭建博客有关信息请参考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Hexo官方文档</a>、<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus官方文档</a>。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>打开命令行，进入博客文件夹，输入以下命令便可获得Icarus主题：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</span><br></pre></td></tr></table></figure>
-<p>此时博客根目录下会生成 <code>_config.icarus.yml</code> 文件，大部分基础配置将在此文件中完成。同时 <code>\theme</code> 目录下会生成 <code>\icarus</code> 目录，其中有主题的系统文件目录 <code>\.github</code>、<code>\include</code>，语言文件目录 <code>\language</code>，样式文件目录 <code>\layout</code>，资源文件目录 <code>\source</code>，其中 <code>\source\img</code> 目录用于存放博客中的图片文件，启动Hexo服务时将会同步到博客根目录下 <code>\public\img</code> 中，便可在博文中通过地址 <code>\img\...</code> 直接访问。</p>
-<p>将博客主题设置为Icarus可将博客配置文件 <code>_config.yml</code> 中 <code>theme</code> 属性的值修改为 <code>icarus</code>，也可以在命令提示符中输入以下命令实现：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-<p>每次修改配置或者增添了新的文件后，在命令行中依次输入以下命令将修改提交并部署到博客上。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h1 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h1><h2 id="1-网站标题head"><a href="#1-网站标题head" class="headerlink" title="1.网站标题head"></a>1.网站标题head</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">head:</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">/img/favicon.svg</span>  <span class="comment"># 网站图标</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">manifest:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">Your</span> <span class="string">Name</span>  <span class="comment"># 网站显示名称</span></span><br><span class="line">        <span class="attr">short_name:</span> <span class="string">Name</span>  <span class="comment"># 网站简称（显示不完全名时显示）</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="2-导航栏navbar"><a href="#2-导航栏navbar" class="headerlink" title="2.导航栏navbar"></a>2.导航栏navbar</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">    	<span class="comment"># 名称: 文件夹</span></span><br><span class="line">        <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">        <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="string">关于:</span> <span class="string">/about</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-固定文章目录"><a href="#3-固定文章目录" class="headerlink" title="3.固定文章目录"></a>3.固定文章目录</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sidebar:</span></span><br><span class="line">    <span class="attr">left:</span></span><br><span class="line">        <span class="attr">sticky:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">right:</span></span><br><span class="line">        <span class="attr">sticky:</span> <span class="literal">true</span>  <span class="comment"># 固定所有position为right的边栏</span></span><br><span class="line"><span class="attr">widgets:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">profile</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line">        <span class="attr">social_links:</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">position:</span> <span class="string">right</span>  <span class="comment"># 将目录(toc)的position设置为right(实测并不会使其在右边出现)</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">toc</span></span><br><span class="line">        <span class="attr">index:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">collapsed:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">depth:</span> <span class="number">3</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-自定义社交按钮"><a href="#4-自定义社交按钮" class="headerlink" title="4.自定义社交按钮"></a>4.自定义社交按钮</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">social_links:</span></span><br><span class="line">            <span class="attr">Github:</span></span><br><span class="line">                <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">                <span class="attr">url:</span> <span class="string">&#x27;https://github.com/asmld&#x27;</span></span><br><span class="line">            <span class="attr">Facebook:</span></span><br><span class="line">                <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-facebook</span></span><br><span class="line">                <span class="attr">url:</span> <span class="string">&#x27;https://facebook.com&#x27;</span></span><br><span class="line">                <span class="string">...</span></span><br><span class="line">          <span class="comment"># 名称:</span></span><br><span class="line">          	  <span class="comment"># 图标:(可在http://www.fontawesome.com.cn/faicons/上查找使用)</span></span><br><span class="line">          	  <span class="comment"># 网址:</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Icarus</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python基础练习&amp;解答</title>
     <url>/2021/05/13/Python%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0-%E8%A7%A3%E7%AD%94/</url>
     <content><![CDATA[<p>一些Python基础练习题的分析解答，参考<a href="https://www.runoob.com/python/python-100-examples.html">Python 100例|菜鸟教程</a>，源码文件已上传个人Github，点击<a href="https://github.com/asmld/Python/tree/master/Runoob">这里</a>查看。</p>
@@ -146,6 +122,30 @@ $$
       </tags>
   </entry>
   <entry>
+    <title>Hexo+Icarus博客主题配置</title>
+    <url>/2021/05/13/Hexo-Icarus%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p> 本文仅介绍部分Icarus主题的个性化配置，更多搭建博客有关信息请参考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Hexo官方文档</a>、<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus官方文档</a>。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>打开命令行，进入博客文件夹，输入以下命令便可获得Icarus主题：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus</span><br></pre></td></tr></table></figure>
+<p>此时博客根目录下会生成 <code>_config.icarus.yml</code> 文件，大部分基础配置将在此文件中完成。同时 <code>\theme</code> 目录下会生成 <code>\icarus</code> 目录，其中有主题的系统文件目录 <code>\.github</code>、<code>\include</code>，语言文件目录 <code>\language</code>，样式文件目录 <code>\layout</code>，资源文件目录 <code>\source</code>，其中 <code>\source\img</code> 目录用于存放博客中的图片文件，启动Hexo服务时将会同步到博客根目录下 <code>\public\img</code> 中，便可在博文中通过地址 <code>\img\...</code> 直接访问。</p>
+<p>将博客主题设置为Icarus可将博客配置文件 <code>_config.yml</code> 中 <code>theme</code> 属性的值修改为 <code>icarus</code>，也可以在命令提示符中输入以下命令实现：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
+<p>每次修改配置或者增添了新的文件后，在命令行中依次输入以下命令将修改提交并部署到博客上。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h1 id="个性化配置"><a href="#个性化配置" class="headerlink" title="个性化配置"></a>个性化配置</h1><h2 id="1-网站标题head"><a href="#1-网站标题head" class="headerlink" title="1.网站标题head"></a>1.网站标题head</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">head:</span></span><br><span class="line">    <span class="attr">favicon:</span> <span class="string">/img/favicon.svg</span>  <span class="comment"># 网站图标</span></span><br><span class="line">    <span class="string">...</span></span><br><span class="line">    <span class="attr">manifest:</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">Your</span> <span class="string">Name</span>  <span class="comment"># 网站显示名称</span></span><br><span class="line">        <span class="attr">short_name:</span> <span class="string">Name</span>  <span class="comment"># 网站简称（显示不完全名时显示）</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-导航栏navbar"><a href="#2-导航栏navbar" class="headerlink" title="2.导航栏navbar"></a>2.导航栏navbar</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">    	<span class="comment"># 名称: 文件夹</span></span><br><span class="line">        <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">        <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="string">关于:</span> <span class="string">/about</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-固定文章目录"><a href="#3-固定文章目录" class="headerlink" title="3.固定文章目录"></a>3.固定文章目录</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sidebar:</span></span><br><span class="line">    <span class="attr">left:</span></span><br><span class="line">        <span class="attr">sticky:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">right:</span></span><br><span class="line">        <span class="attr">sticky:</span> <span class="literal">true</span>  <span class="comment"># 固定所有position为right的边栏</span></span><br><span class="line"><span class="attr">widgets:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">position:</span> <span class="string">left</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">profile</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line">        <span class="attr">social_links:</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">position:</span> <span class="string">right</span>  <span class="comment"># 将目录(toc)的position设置为right(实测并不会使其在右边出现)</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">toc</span></span><br><span class="line">        <span class="attr">index:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">collapsed:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">depth:</span> <span class="number">3</span></span><br><span class="line">        <span class="string">...</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-自定义社交按钮"><a href="#4-自定义社交按钮" class="headerlink" title="4.自定义社交按钮"></a>4.自定义社交按钮</h2><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">social_links:</span></span><br><span class="line">            <span class="attr">Github:</span></span><br><span class="line">                <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">                <span class="attr">url:</span> <span class="string">&#x27;https://github.com/asmld&#x27;</span></span><br><span class="line">            <span class="attr">Facebook:</span></span><br><span class="line">                <span class="attr">icon:</span> <span class="string">fab</span> <span class="string">fa-facebook</span></span><br><span class="line">                <span class="attr">url:</span> <span class="string">&#x27;https://facebook.com&#x27;</span></span><br><span class="line">                <span class="string">...</span></span><br><span class="line">          <span class="comment"># 名称:</span></span><br><span class="line">          	  <span class="comment"># 图标:(可在http://www.fontawesome.com.cn/faicons/上查找使用)</span></span><br><span class="line">          	  <span class="comment"># 网址:</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Icarus</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>多元微积分常用公式总结</title>
     <url>/2021/05/13/%E5%A4%9A%E5%85%83%E5%BE%AE%E7%A7%AF%E5%88%86%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<blockquote>
@@ -202,31 +202,31 @@ $$
 </tbody>
 </table>
 </div>
-<h2 id="2-二重积分"><a href="#2-二重积分" class="headerlink" title="2. 二重积分"></a>2. 二重积分</h2><h3 id="2-1-直角坐标"><a href="#2-1-直角坐标" class="headerlink" title="2.1 直角坐标"></a>2.1 直角坐标</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="2-二重积分"><a href="#2-二重积分" class="headerlink" title="2. 二重积分"></a>2. 二重积分</h2><h3 id="2-1-直角坐标"><a href="#2-1-直角坐标" class="headerlink" title="2.1 直角坐标"></a>2.1 直角坐标</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_Sf(x,y)\mathrm{d}x\mathrm{d}y=\int_{x_1}^{x_2}\mathrm{d}x\int_{y_1(x)}^{y_2(x)}f(x,y)\mathrm{d}y
 $$
 </div>
 
-<h3 id="2-2-极坐标"><a href="#2-2-极坐标" class="headerlink" title="2.2 极坐标"></a>2.2 极坐标</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="2-2-极坐标"><a href="#2-2-极坐标" class="headerlink" title="2.2 极坐标"></a>2.2 极坐标</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_Sf(x,y)\mathrm{d}x\mathrm{d}y=\iint_Ef(r\cos\theta,r\sin\theta)r\mathrm{d}r\mathrm{d}\theta
 $$
 </div>
 
-<h3 id="2-3-变量替换"><a href="#2-3-变量替换" class="headerlink" title="2.3 变量替换"></a>2.3 变量替换</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="2-3-变量替换"><a href="#2-3-变量替换" class="headerlink" title="2.3 变量替换"></a>2.3 变量替换</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_Sf(x,y)\mathrm{d}x\mathrm{d}y=\iint_Ef(x(u,v),y(u,v))\cdot\left|\mathrm{det}\frac{\partial(x,y)}{\partial(u,v)}\right|\mathrm{d}u\mathrm{d}v
 $$
 </div>
 
-<h2 id="3-三重积分"><a href="#3-三重积分" class="headerlink" title="3. 三重积分"></a>3. 三重积分</h2><h3 id="3-1-直角坐标"><a href="#3-1-直角坐标" class="headerlink" title="3.1 直角坐标"></a>3.1 直角坐标</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="3-三重积分"><a href="#3-三重积分" class="headerlink" title="3. 三重积分"></a>3. 三重积分</h2><h3 id="3-1-直角坐标"><a href="#3-1-直角坐标" class="headerlink" title="3.1 直角坐标"></a>3.1 直角坐标</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iiint_\Omega f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iint_{\Omega_{xy}}\left[\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\mathrm{d}z\right]\mathrm{d}x\mathrm{d}y=\int_{z_1}^{z_2}\mathrm{d}z\iint_{\Omega_{xy}}f(x,y,z)\mathrm{d}x\mathrm{d}y
 $$
 </div>
 
-<h3 id="3-2-柱坐标"><a href="#3-2-柱坐标" class="headerlink" title="3.2 柱坐标"></a>3.2 柱坐标</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="3-2-柱坐标"><a href="#3-2-柱坐标" class="headerlink" title="3.2 柱坐标"></a>3.2 柱坐标</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \begin{cases}
 x=r\cos\theta\\
@@ -236,13 +236,13 @@ z=z
 $$
 </div>
 
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iiint_\Omega f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iiint_{\Omega^*}f(r\cos\theta,r\sin\theta,z)r\mathrm{d}r\mathrm{d}\theta\mathrm{d}z
 $$
 </div>
 
-<h3 id="3-3-球坐标"><a href="#3-3-球坐标" class="headerlink" title="3.3 球坐标"></a>3.3 球坐标</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="3-3-球坐标"><a href="#3-3-球坐标" class="headerlink" title="3.3 球坐标"></a>3.3 球坐标</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \begin{cases}
 x=\rho\sin\varphi\cos\theta\\
@@ -251,13 +251,13 @@ z=\rho\cos\varphi
 \end{cases},\varphi\in[0,\pi],\theta\in[0,2\pi]
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iiint_\Omega f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iiint_{\Omega^*}f(\rho\sin\varphi\cos\theta,\rho\sin\varphi\sin\theta,\rho\cos\varphi)\rho^2\sin\varphi\mathrm{d}\rho\mathrm{d}\varphi\mathrm{d}\theta
 $$
 </div>
 
-<h3 id="3-4-变量替换"><a href="#3-4-变量替换" class="headerlink" title="3.4 变量替换"></a>3.4 变量替换</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="3-4-变量替换"><a href="#3-4-变量替换" class="headerlink" title="3.4 变量替换"></a>3.4 变量替换</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iiint_\Omega f(x,y,z)=\iiint_{\Omega^*}f(x(u,v,w),y(u,v,w),z(u,v,w))\cdot\left|\mathrm{det}\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\mathrm{d}u\mathrm{d}v\mathrm{d}w
 $$
@@ -286,19 +286,19 @@ $$
 </tbody>
 </table>
 </div>
-<h3 id="4-2-物体的质心"><a href="#4-2-物体的质心" class="headerlink" title="4.2 物体的质心"></a>4.2 物体的质心</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="4-2-物体的质心"><a href="#4-2-物体的质心" class="headerlink" title="4.2 物体的质心"></a>4.2 物体的质心</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 M=\iiint_\Omega\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \boldsymbol{r}_c=\frac{\iiint_\Omega\boldsymbol{r}\cdot\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\iiint_\Omega\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}
 $$
 </div>
 
 
-<h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="4-3-转动惯量"><a href="#4-3-转动惯量" class="headerlink" title="4.3 转动惯量"></a>4.3 转动惯量</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 J_x=\iiint_\Omega(y^2+z^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
 J_y=\iiint_\Omega(z^2+x^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z\\
@@ -306,7 +306,7 @@ J_z=\iiint_\Omega(x^2+y^2)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z
 $$
 </div>
 
-<h3 id="4-4-万有引力"><a href="#4-4-万有引力" class="headerlink" title="4.4 万有引力"></a>4.4 万有引力</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="4-4-万有引力"><a href="#4-4-万有引力" class="headerlink" title="4.4 万有引力"></a>4.4 万有引力</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 F_x=\iiint_\Omega\frac{Gm_0(x-x_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}^3}\\
 F_y=\iiint_\Omega\frac{Gm_0(y-y_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{\sqrt{(x-x_0)^2+(y-y_0)^2+(z-z_0)^2}^3}\\
@@ -314,38 +314,38 @@ F_z=\iiint_\Omega\frac{Gm_0(z-z_0)\rho(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z}{
 $$
 </div>
 
-<h2 id="5-曲线积分"><a href="#5-曲线积分" class="headerlink" title="5. 曲线积分"></a>5. 曲线积分</h2><h3 id="5-1-第一型曲线积分"><a href="#5-1-第一型曲线积分" class="headerlink" title="5.1 第一型曲线积分"></a>5.1 第一型曲线积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="5-曲线积分"><a href="#5-曲线积分" class="headerlink" title="5. 曲线积分"></a>5. 曲线积分</h2><h3 id="5-1-第一型曲线积分"><a href="#5-1-第一型曲线积分" class="headerlink" title="5.1 第一型曲线积分"></a>5.1 第一型曲线积分</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \int_Lf\mathrm{d}l=\int_\alpha^\beta f(x(t),y(t),z(t))\cdot\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\mathrm{d}t
 $$
 </div>
 
-<h3 id="5-2-第二型曲线积分"><a href="#5-2-第二型曲线积分" class="headerlink" title="5.2 第二型曲线积分"></a>5.2 第二型曲线积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="5-2-第二型曲线积分"><a href="#5-2-第二型曲线积分" class="headerlink" title="5.2 第二型曲线积分"></a>5.2 第二型曲线积分</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \boldsymbol{\tau}=\frac{(x'(t),y'(t),z'(t))}{\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}}\\
 \mathrm{d}l=\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\mathrm{d}t\\
 \boldsymbol{v}=(P(x,y,z),Q(x,y,z),R(x,y,z))
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \int_L\boldsymbol{v}\mathrm{d}\boldsymbol{l}=\int_L\boldsymbol{v}\cdot\boldsymbol{\tau}\mathrm{d}l=\pm\int_\alpha^\beta\left[Px'(t)+Qy'(t)+Rz'(t)\right]\mathrm{d}t
 $$
 </div>
 
-<h2 id="6-曲面积分"><a href="#6-曲面积分" class="headerlink" title="6. 曲面积分"></a>6. 曲面积分</h2><h3 id="6-1-第一型曲面积分"><a href="#6-1-第一型曲面积分" class="headerlink" title="6.1 第一型曲面积分"></a>6.1 第一型曲面积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="6-曲面积分"><a href="#6-曲面积分" class="headerlink" title="6. 曲面积分"></a>6. 曲面积分</h2><h3 id="6-1-第一型曲面积分"><a href="#6-1-第一型曲面积分" class="headerlink" title="6.1 第一型曲面积分"></a>6.1 第一型曲面积分</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_Sf(x,y,z)\mathrm{d}S=\iint_Df(x(u,v),y(u,v),z(u,v))\Vert\boldsymbol{r}'_u\times\boldsymbol{r}'_v\Vert\mathrm{d}u\mathrm{d}v
 $$
 </div>
 
 <ul>
-<li>Poisson公式<div style="position:relative; height:100%; overflow-y:auto">
+<li>Poisson公式<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 S=\{(x,y,z)\vert x^2+y^2+z^2=1\}
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_Sf(ax+by+cz)\mathrm{d}S=2\pi\int_{-1}^1f(\sqrt{a^2+b^2+c^2}t)\mathrm{d}t
 $$
@@ -353,19 +353,19 @@ $$
 
 </li>
 </ul>
-<h3 id="6-2-第二型曲面积分"><a href="#6-2-第二型曲面积分" class="headerlink" title="6.2 第二型曲面积分"></a>6.2 第二型曲面积分</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="6-2-第二型曲面积分"><a href="#6-2-第二型曲面积分" class="headerlink" title="6.2 第二型曲面积分"></a>6.2 第二型曲面积分</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \boldsymbol{r}=\boldsymbol{r}(u,v)\,,\,\,\boldsymbol{r}'_u\times\boldsymbol{r}'_v=(A,B,C)\\
 \boldsymbol{v}=(P,Q,R)
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_S\boldsymbol{v}\mathrm{d}\boldsymbol{S}=\pm\iint_S\frac{PA+QB+RC}{\sqrt{A^2+B^2+C^2}}\mathrm{d}S=\pm\iint_D(PA+QB+RC)\mathrm{d}u\mathrm{d}v
 $$
 </div>
 
-<h2 id="7-Green公式及其应用"><a href="#7-Green公式及其应用" class="headerlink" title="7. Green公式及其应用"></a>7. Green公式及其应用</h2><h3 id="7-1-Green公式"><a href="#7-1-Green公式" class="headerlink" title="7.1 Green公式"></a>7.1 Green公式</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="7-Green公式及其应用"><a href="#7-Green公式及其应用" class="headerlink" title="7. Green公式及其应用"></a>7. Green公式及其应用</h2><h3 id="7-1-Green公式"><a href="#7-1-Green公式" class="headerlink" title="7.1 Green公式"></a>7.1 Green公式</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \oint_{\partial D}P\mathrm dx+Q\mathrm dy=\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\mathrm dx\mathrm dy
 $$
@@ -377,7 +377,7 @@ $$
 <ul>
 <li>闭合曲线围成封闭区域的面积</li>
 </ul>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \sigma(D)=\iint_D\mathrm dx\mathrm dy=\oint_{\partial D}x\mathrm dy=-\oint_{\partial D}y\mathrm dx=\frac{1}{2}\oint_{\partial D}x\mathrm dy-y\mathrm dx
 $$
@@ -386,7 +386,7 @@ $$
 <ul>
 <li>Green公式的变形</li>
 </ul>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \oint_{\partial D}\boldsymbol v\cdot\boldsymbol \tau\mathrm dl=\iint_D\nabla\times\boldsymbol v\mathrm dx\mathrm dy\\
 \oint_{\partial D}\boldsymbol v\cdot\boldsymbol n\mathrm dl=\iint_D\nabla\cdot\boldsymbol v\mathrm dx\mathrm dy
@@ -407,7 +407,7 @@ $$
 <li>连续可微的保守场一定是无旋场</li>
 <li>单连通区域上的连续可微保守场等价于无旋场</li>
 </ol>
-<h3 id="7-3-恰当方程"><a href="#7-3-恰当方程" class="headerlink" title="7.3 恰当方程"></a>7.3 恰当方程</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="7-3-恰当方程"><a href="#7-3-恰当方程" class="headerlink" title="7.3 恰当方程"></a>7.3 恰当方程</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 P(x,y)\mathrm dx+Q(x,y)\mathrm dy=0,\,\frac{\partial Q}{\partial x}=\frac{\partial P}{\partial y}
 $$
@@ -436,7 +436,7 @@ $$
 </tbody>
 </table>
 </div>
-<h3 id="7-4-积分因子"><a href="#7-4-积分因子" class="headerlink" title="7.4 积分因子"></a>7.4 积分因子</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="7-4-积分因子"><a href="#7-4-积分因子" class="headerlink" title="7.4 积分因子"></a>7.4 积分因子</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \mu(x,y)P(x,y)\mathrm dx+\mu(x,y)Q(x,y)\mathrm dy=0,\,\frac{\partial(\mu Q)}{\partial x}=\frac{\partial(\mu P)}{\partial y}
 $$
@@ -448,12 +448,12 @@ $$
 <li><p>若$\frac{P’_y-Q’_x}{-P}=\psi(y)$仅为$y$的函数，则$\mu(y)=\exp\left(\int\psi(y)\mathrm dy\right)$</p>
 </li>
 </ul>
-<h2 id="8-Gauss公式和Stokes公式"><a href="#8-Gauss公式和Stokes公式" class="headerlink" title="8. Gauss公式和Stokes公式"></a>8. Gauss公式和Stokes公式</h2><h3 id="8-1-Gauss公式"><a href="#8-1-Gauss公式" class="headerlink" title="8.1 Gauss公式"></a>8.1 Gauss公式</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h2 id="8-Gauss公式和Stokes公式"><a href="#8-Gauss公式和Stokes公式" class="headerlink" title="8. Gauss公式和Stokes公式"></a>8. Gauss公式和Stokes公式</h2><h3 id="8-1-Gauss公式"><a href="#8-1-Gauss公式" class="headerlink" title="8.1 Gauss公式"></a>8.1 Gauss公式</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_{\partial\Omega}P\mathrm dy\land\mathrm dz+Q\mathrm dz\land\mathrm dx+R\mathrm dx\land\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \iint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
 $$
@@ -467,7 +467,7 @@ $$
 \oint_{\partial S}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_S(R'_y-Q'_z)\mathrm dy\land\mathrm dz+(P'_z-R'_x)\mathrm dz\land\mathrm dx+(Q'_y-P'_x)\mathrm dx\land\mathrm dy
 $$
 </div>
-<div style="position:relative; height:100%; overflow-y:auto">
+<div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \nabla\times\boldsymbol v=\mathrm{det}\begin{pmatrix}\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k} \\ \frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\P&Q&R\end{pmatrix},\\
 \oint_{\partial S}\boldsymbol v\cdot\boldsymbol\tau\mathrm dl=\iint_S(\nabla\times\boldsymbol v)\cdot\boldsymbol n\mathrm dS
