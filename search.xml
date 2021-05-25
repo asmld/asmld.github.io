@@ -462,7 +462,7 @@ $$
 <blockquote>
 <p>$\partial\Omega$外侧为正</p>
 </blockquote>
-<h3 id="8-2-Stokes公式"><a href="#8-2-Stokes公式" class="headerlink" title="8.2 Stokes公式"></a>8.2 Stokes公式</h3><div style="position:relative; height:100%; overflow-y:auto">
+<h3 id="8-2-Stokes公式"><a href="#8-2-Stokes公式" class="headerlink" title="8.2 Stokes公式"></a>8.2 Stokes公式</h3><div style="position:relative; height:100%; overflow-y:hidden">
 $$
 \oint_{\partial S}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_S(R'_y-Q'_z)\mathrm dy\land\mathrm dz+(P'_z-R'_x)\mathrm dz\land\mathrm dx+(Q'_y-P'_x)\mathrm dx\land\mathrm dy
 $$
@@ -488,17 +488,17 @@ $$
 <h2 id="9-非负项级数"><a href="#9-非负项级数" class="headerlink" title="9. 非负项级数"></a>9. 非负项级数</h2><h3 id="9-1-比较判别法"><a href="#9-1-比较判别法" class="headerlink" title="9.1 比较判别法"></a>9.1 比较判别法</h3><ul>
 <li><p>普通形式</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\in\mathbb{N},0\leq a_n\leq b_n,\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\in\mathbb{N},a_n\geq b_n\geq 0,\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:90%; overflow-y:hidden">$\forall n\in\mathbb{N},0\leq a_n\leq b_n,\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\in\mathbb{N},a_n\geq b_n\geq 0,\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 </li>
 </ul>
 </li>
 <li><p>极限形式</p>
-<div style="position:relative; height:100%; overflow-y:auto">$a_n>0,b_n>0,\lim\limits_{n\to\infty}\frac{a_n}{b_n}=\lambda,0\leq\lambda\leq+\infty$</div>
+<div style="position:relative; height:100%; overflow-y:hidden">$a_n>0,b_n>0,\lim\limits_{n\to\infty}\frac{a_n}{b_n}=\lambda,0\leq\lambda\leq+\infty$</div>
 
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\lambda<\infty,\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\lambda>0,\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\lambda<\infty,\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\lambda>0,\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 
 </li>
 </ul>
@@ -510,17 +510,17 @@ $$
 <ul>
 <li><p>普通形式</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\in\mathbb{N},\sqrt[n]{a_n}< r\leq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\exists无穷多个n\in\mathbb{N},\sqrt[n]{a_n}\geq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\in\mathbb{N},\sqrt[n]{a_n}< r\leq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\exists无穷多个n\in\mathbb{N},\sqrt[n]{a_n}\geq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 </li>
 </ul>
 </li>
 <li><p>极限形式</p>
-<div style="position:relative; height:100%; overflow-y:auto">$\lim\limits_{n\to\infty}\sqrt[n]{a_n}=q$</div>
+<div style="position:relative; height:100%; overflow-y:hidden">$\lim\limits_{n\to\infty}\sqrt[n]{a_n}=q$</div>
 
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 
 </li>
 </ul>
@@ -534,8 +534,8 @@ $$
 <p> $\sum\limits_{n=1}^{+\infty}a_n$与$\sum\limits_{n=1}^{+\infty}b_n$都是严格的正项级数</p>
 </blockquote>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\in\mathbb{N},\frac{a_{n+1}}{a_n}\leq\frac{b_{n+1}}{b_n},且\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\in\mathbb{N},\frac{a_{n+1}}{a_n}\geq\frac{b_{n+1}}{b_n},且\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\in\mathbb{N},\frac{a_{n+1}}{a_n}\leq\frac{b_{n+1}}{b_n},且\sum\limits_{n=1}^{+\infty}b_n收敛\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\in\mathbb{N},\frac{a_{n+1}}{a_n}\geq\frac{b_{n+1}}{b_n},且\sum\limits_{n=1}^{+\infty}b_n发散\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 
 </li>
 </ul>
@@ -545,16 +545,16 @@ $$
 <ul>
 <li><p>普通形式</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\geq n_0,\frac{a_{n+1}}{a_n}\leq r<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\geq n_0,\frac{a_{n+1}}{a_n}>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\geq n_0,\frac{a_{n+1}}{a_n}\leq r<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\geq n_0,\frac{a_{n+1}}{a_n}>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 </li>
 </ul>
 </li>
 <li><p>极限形式</p>
 <p>$\lim\limits_{n\to\infty}\frac{a_{n+1}}{a_n}=q$</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 
 </li>
 </ul>
@@ -566,16 +566,16 @@ $$
 <ul>
 <li><p>普通形式</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\geq n_0,n\left(\frac{a_{n+1}}{a_n}-1\right)\geq q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$\forall n\geq n_0,n\left(\frac{a_{n+1}}{a_n}-1\right)\leq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\geq n_0,n\left(\frac{a_{n+1}}{a_n}-1\right)\geq q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$\forall n\geq n_0,n\left(\frac{a_{n+1}}{a_n}-1\right)\leq1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 </li>
 </ul>
 </li>
 <li><p>极限形式</p>
 <p>$\lim\limits_{n\to\infty}n\left(\frac{a_{n+1}}{a_n}-1\right)=q$</p>
 <ul>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
-<li><div style="position:relative; height:100%; overflow-y:auto">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
+<li><div style="position:relative; height:100%; overflow-y:hidden">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
 </li>
 </ul>
 </li>
