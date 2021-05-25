@@ -450,18 +450,19 @@ $$
 </ul>
 <h2 id="8-Gauss公式和Stokes公式"><a href="#8-Gauss公式和Stokes公式" class="headerlink" title="8. Gauss公式和Stokes公式"></a>8. Gauss公式和Stokes公式</h2><h3 id="8-1-Gauss公式"><a href="#8-1-Gauss公式" class="headerlink" title="8.1 Gauss公式"></a>8.1 Gauss公式</h3><div style="position:relative; height:100%; overflow-y:auto">
 $$
-\oiint_{\partial\Omega}P\mathrm dy\and\mathrm dz+Q\mathrm dz\and\mathrm dx+R\mathrm dx\and\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
+\ooint_{\partial\Omega}P\mathrm dy\land\mathrm dz+Q\mathrm dz\land\mathrm dx+R\mathrm dx\land\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
 $$
 </div>
 <div style="position:relative; height:100%; overflow-y:auto">
 $$
-\oiint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
+\ooint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
 $$
 </div>
 
+
 <h3 id="8-2-Stokes公式"><a href="#8-2-Stokes公式" class="headerlink" title="8.2 Stokes公式"></a>8.2 Stokes公式</h3><div style="position:relative; height:100%; overflow-y:auto">
 $$
-\oint_{\partial S}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_S(R'_y-Q'_z)\mathrm dy\and\mathrm dz+(P'_z-R'_x)\mathrm dz\and\mathrm dx+(Q'_y-P'_x)\mathrm dx\and\mathrm dy
+\oint_{\partial S}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_S(R'_y-Q'_z)\mathrm dy\land\mathrm dz+(P'_z-R'_x)\mathrm dz\land\mathrm dx+(Q'_y-P'_x)\mathrm dx\land\mathrm dy
 $$
 </div>
 <div style="position:relative; height:100%; overflow-y:auto">
@@ -470,6 +471,7 @@ $$
 \oint_{\partial S}\boldsymbol v\cdot\boldsymbol\tau\mathrm dl=\iint_S(\nabla\times\boldsymbol v)\cdot\boldsymbol n\mathrm dS
 $$
 </div>
+
 
 <h3 id="8-3-空间向量场"><a href="#8-3-空间向量场" class="headerlink" title="8.3 空间向量场"></a>8.3 空间向量场</h3><ul>
 <li><strong>面连通</strong>：$\Omega\subset\mathbb{R}^3$中任一封闭曲面$S$的内部都包含在$\Omega$中，则称$\Omega$是面（二维）连通区域</li>
