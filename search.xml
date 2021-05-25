@@ -448,7 +448,38 @@ $$
 <li><p>若$\frac{P’_y-Q’_x}{-P}=\psi(y)$仅为$y$的函数，则$\mu(y)=\exp\left(\int\psi(y)\mathrm dy\right)$</p>
 </li>
 </ul>
-]]></content>
+<h2 id="8-Gauss公式和Stokes公式"><a href="#8-Gauss公式和Stokes公式" class="headerlink" title="8. Gauss公式和Stokes公式"></a>8. Gauss公式和Stokes公式</h2><h3 id="8-1-Gauss公式"><a href="#8-1-Gauss公式" class="headerlink" title="8.1 Gauss公式"></a>8.1 Gauss公式</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\oiint_{\partial\Omega}P\mathrm dy\and\mathrm dz+Q\mathrm dz\and\mathrm dx+R\mathrm dx\and\mathrm dy=\iiint_\Omega\left(\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)\mathrm dx\mathrm dy\mathrm dz
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\oiint_{\partial\Omega}\boldsymbol{v}\mathrm d\boldsymbol{S}=\iiint_\Omega\nabla\cdot\boldsymbol{v}\mathrm dx\mathrm dy\mathrm dz
+$$
+</div>
+
+<h3 id="8-2-Stokes公式"><a href="#8-2-Stokes公式" class="headerlink" title="8.2 Stokes公式"></a>8.2 Stokes公式</h3><div style="position:relative; height:100%; overflow-y:auto">
+$$
+\oint_{\partial S}P\mathrm dx+Q\mathrm dy+R\mathrm dz=\iint_S(R'_y-Q'_z)\mathrm dy\and\mathrm dz+(P'_z-R'_x)\mathrm dz\and\mathrm dx+(Q'_y-P'_x)\mathrm dx\and\mathrm dy
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:auto">
+$$
+\nabla\times\boldsymbol v=\mathrm{det}\begin{pmatrix}\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k} \\ \frac{\partial}{\partial x}&\frac{\partial}{\partial y}&\frac{\partial}{\partial z}\\P&Q&R\end{pmatrix},\\
+\oint_{\partial S}\boldsymbol v\cdot\boldsymbol\tau\mathrm dl=\iint_S(\nabla\times\boldsymbol v)\cdot\boldsymbol n\mathrm dS
+$$
+</div>
+
+<h3 id="8-3-空间向量场"><a href="#8-3-空间向量场" class="headerlink" title="8.3 空间向量场"></a>8.3 空间向量场</h3><ul>
+<li><strong>面连通</strong>：$\Omega\subset\mathbb{R}^3$中任一封闭曲面$S$的内部都包含在$\Omega$中，则称$\Omega$是面（二维）连通区域</li>
+<li><strong>线连通</strong>：$\Omega\subset\mathbb{R}^3$中任一简单闭曲线$L$，均有$\Omega$中曲面以$L$为边界，则称$\Omega$是线（一维）连通区域</li>
+</ul>
+<ol>
+<li>连续保守场等价于有势场</li>
+<li>线连通区域上的保守场等价于无旋场</li>
+</ol>
+<h2 id="9-非负项级数"><a href="#9-非负项级数" class="headerlink" title="9. 非负项级数"></a>9. 非负项级数</h2>]]></content>
       <categories>
         <category>数学</category>
       </categories>
