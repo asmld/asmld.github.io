@@ -61,16 +61,6 @@
 <td style="text-align:center">$\mu=\displaystyle\frac{1}{n}\sum\limits_{i=1}^nx_i$</td>
 </tr>
 <tr>
-<td style="text-align:center"><code>x.max()</code></td>
-<td style="text-align:center">最大值</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.idmax()</code></td>
-<td style="text-align:center">最大值的索引</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
 <td style="text-align:center"><code>x.var()</code></td>
 <td style="text-align:center">无偏样本方差</td>
 <td style="text-align:center">$S^2=\displaystyle\frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\mu)^2$</td>
@@ -89,6 +79,15 @@
 <td style="text-align:center"><code>x.corr(y)</code></td>
 <td style="text-align:center">相关系数</td>
 <td style="text-align:center">$r=\frac{\sum\limits_{i=1}^n(x_i-\mu_x)(y_i-\mu_y)}{\sqrt{\sum\limits_{i=1}^n(x_i-\mu_x)^2 \sum\limits_{i=1}^n(y_i-\mu_y)^2}}$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.max()</code></td>
+<td style="text-align:center">最大值</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.idmax()</code></td>
+<td style="text-align:center">最大值的索引</td>
 </tr>
 </tbody>
 </table>
