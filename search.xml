@@ -34,7 +34,7 @@
 <h2 id="2-2索引Series对象"><a href="#2-2索引Series对象" class="headerlink" title="2.2索引Series对象"></a>2.2索引Series对象</h2><h3 id="直接索引"><a href="#直接索引" class="headerlink" title="直接索引"></a>直接索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>])</span><br><span class="line">s1 = s[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">s2 = s[[<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">1</span>    <span class="number">4</span></span><br><span class="line"><span class="number">2</span>    <span class="number">9</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
 <h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;Tom&#x27;</span>: <span class="number">18</span>, <span class="string">&#x27;Bob&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;Jack&#x27;</span>: <span class="number">23</span>&#125;</span><br><span class="line">s = pd.Series(dic)</span><br><span class="line">s1 = s.loc[[<span class="string">&#x27;Bob&#x27;</span>, <span class="string">&#x27;Tom&#x27;</span>]]</span><br><span class="line">s2 = s.iloc[[<span class="number">1</span>, <span class="number">0</span>]]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Bob    <span class="number">20</span></span><br><span class="line">Tom    <span class="number">18</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
 <h3 id="取首尾"><a href="#取首尾" class="headerlink" title="取首尾"></a>取首尾</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = np.random.random_sample(<span class="number">50</span>)</span><br><span class="line">s = pd.Series(v)</span><br><span class="line">s1 = s.head()  <span class="comment"># 默认取5项</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">0</span>    <span class="number">0.042152</span></span><br><span class="line"><span class="number">1</span>    <span class="number">0.829074</span></span><br><span class="line"><span class="number">2</span>    <span class="number">0.363269</span></span><br><span class="line"><span class="number">3</span>    <span class="number">0.958803</span></span><br><span class="line"><span class="number">4</span>    <span class="number">0.113934</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">s2 = s.tail(<span class="number">3</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">47</span>    <span class="number">0.257911</span></span><br><span class="line"><span class="number">48</span>    <span class="number">0.031124</span></span><br><span class="line"><span class="number">49</span>    <span class="number">0.456409</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
-<h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic = &#123;<span class="string">&quot;Tom&quot;</span>: <span class="number">18</span>, <span class="string">&quot;Bob&quot;</span>: <span class="number">20</span>, <span class="string">&quot;Jack&quot;</span>: <span class="number">23</span>&#125;</span><br><span class="line">s = pd.Series(dic)</span><br><span class="line">s1 = s[s&gt;<span class="number">20</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Jack    <span class="number">23</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
+<h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic = &#123;<span class="string">&#x27;Tom&#x27;</span>: <span class="number">18</span>, <span class="string">&#x27;Bob&#x27;</span>: <span class="number">20</span>, <span class="string">&#x27;Jack&#x27;</span>: <span class="number">23</span>&#125;</span><br><span class="line">s = pd.Series(dic)</span><br><span class="line">s1 = s[s&gt;<span class="number">20</span>]</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Jack    <span class="number">23</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
 <h2 id="2-3操作Series对象"><a href="#2-3操作Series对象" class="headerlink" title="2.3操作Series对象"></a>2.3操作Series对象</h2><h3 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">v = [<span class="number">10</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, np.nan]</span><br><span class="line">s = pd.Series(v)</span><br><span class="line">l1 = s.count()  <span class="comment"># 不包括NaN</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">4</span></span><br><span class="line">l2 = <span class="built_in">len</span>(s)  <span class="comment"># 包括NaN</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">5</span></span><br><span class="line">s1 = s.unique()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="number">10.</span>  <span class="number">3.</span>  <span class="number">2.</span> nan]</span><br><span class="line">s2 = s.value_counts()</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line"><span class="number">2.0</span>     <span class="number">2</span></span><br><span class="line"><span class="number">3.0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">10.0</span>    <span class="number">1</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
 <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">s = pd.Series([<span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>], index=[<span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;a&#x27;</span>])</span><br><span class="line">s1 = s.sort_values(ascending=<span class="literal">False</span>)  <span class="comment"># 按值排序</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">b    <span class="number">3</span></span><br><span class="line">a    <span class="number">2</span></span><br><span class="line">c    <span class="number">1</span></span><br><span class="line">dtype: int64</span><br><span class="line">s2 = s.sort_index(ascending=<span class="literal">True</span>)  <span class="comment"># 按索引排序</span></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">a    <span class="number">2</span></span><br><span class="line">b    <span class="number">3</span></span><br><span class="line">c    <span class="number">1</span></span><br><span class="line">dtype: int64</span><br></pre></td></tr></table></figure>
 <h3 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic = &#123;<span class="string">&quot;Tom&quot;</span>: <span class="number">3.9</span>, <span class="string">&quot;Bob&quot;</span>: <span class="number">3.8</span>, <span class="string">&quot;Jack&quot;</span>: <span class="number">3.8</span>, <span class="string">&#x27;Lucy&#x27;</span>: <span class="number">3.79</span>&#125;</span><br><span class="line">s = pd.Series(dic)</span><br><span class="line">s1 = s.rank()</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Tom     <span class="number">4.0</span></span><br><span class="line">Bob     <span class="number">2.5</span></span><br><span class="line">Jack    <span class="number">2.5</span></span><br><span class="line">Lucy    <span class="number">1.0</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">s2 = s.rank(ascending=<span class="literal">False</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Tom     <span class="number">1.0</span></span><br><span class="line">Bob     <span class="number">2.5</span></span><br><span class="line">Jack    <span class="number">2.5</span></span><br><span class="line">Lucy    <span class="number">4.0</span></span><br><span class="line">dtype: float64</span><br><span class="line"></span><br><span class="line">s3 = s.rank(ascending=<span class="literal">False</span>, method=<span class="string">&#x27;first&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">Tom     <span class="number">1.0</span></span><br><span class="line">Bob     <span class="number">2.0</span></span><br><span class="line">Jack    <span class="number">3.0</span></span><br><span class="line">Lucy    <span class="number">4.0</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
@@ -654,10 +654,90 @@ $$
 <ul>
 <li><div style="position:relative; height:100%; overflow-y:hidden">$q>1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n收敛$</div></li>
 <li><div style="position:relative; height:100%; overflow-y:hidden">$q<1\Rightarrow\sum\limits_{n=1}^{+\infty}a_n发散$</div>
+
 </li>
 </ul>
 </li>
 </ul>
+<h2 id="10-Fourier级数"><a href="#10-Fourier级数" class="headerlink" title="10.Fourier级数"></a>10.Fourier级数</h2><h3 id="10-1-形式Fourier级数"><a href="#10-1-形式Fourier级数" class="headerlink" title="10.1 形式Fourier级数"></a>10.1 形式Fourier级数</h3><ul>
+<li>2π周期函数的Fourier级数</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+f(x)\sim\frac{a_0}{2}+\sum\limits_{n=1}^{+\infty}(a_n\cos{nx}+b_n\sin{nx})
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+\begin{cases}
+a_0=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\mathrm{d}x\\
+a_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos{kx}\mathrm{d}x,k=1,2,\cdots,n\cdots\\
+b_k=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin{kx}\mathrm{d}x,k=1,2,\cdots,n\cdots
+\end{cases}
+$$
+</div>
+
+<ul>
+<li>正弦Fourier级数（$f(x)$为奇函数）</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+f(x)\sim\sum\limits_{n=1}^{+\infty}b_n\sin{nx}
+$$
+</div>
+
+<ul>
+<li>余弦Fourier级数（$f(x)$为偶函数）</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+f(x)\sim\frac{a_0}{2}+\sum\limits_{n=1}^{+\infty}a_n\cos{nx}
+$$
+</div>
+
+<ul>
+<li>任意周期（$2l$）的Fourier级数</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+f(x)\sim\frac{a_0}{2}+\sum\limits_{n=1}^{+\infty}(a_n\cos{\frac{n\pi x}{l}}+b_n\sin{\frac{n\pi x}{l}})
+$$
+</div>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+\begin{cases}
+a_0=\frac{1}{l}\int_{-l}^{l}f(x)\mathrm{d}x\\
+a_k=\frac{1}{l}\int_{-l}^{l}f(x)\cos{\frac{k\pi x}{l}}\mathrm{d}x,k=1,2,\cdots,n\cdots\\
+b_k=\frac{1}{l}\int_{-l}^{l}f(x)\sin{\frac{k\pi x}{l}}\mathrm{d}x,k=1,2,\cdots,n\cdots
+\end{cases}
+$$
+</div>
+
+<h3 id="10-2-Fourier级数的几何解释"><a href="#10-2-Fourier级数的几何解释" class="headerlink" title="10.2 Fourier级数的几何解释"></a>10.2 Fourier级数的几何解释</h3><blockquote>
+<p>$\forall f,g\in\mathfrak{R}[-\pi,\pi]$，$f$ 与 $g$ 的内积$(f,g)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)g(x)\mathrm{d}x$，$\Vert f\Vert=\sqrt{(f,f)}$</p>
+</blockquote>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+\frac{a_0^2}{2}+\sum\limits_{n=1}^{+\infty}(a_n^2+b_n^2)\leq\Vert f\Vert^2=\frac{1}{\pi}\int_{-\pi}^\pi[f(x)]^2\mathrm{d}x
+$$
+</div>
+
+<ul>
+<li>推论</li>
+</ul>
+<div style="position:relative; height:100%; overflow-y:hidden">
+$$
+f\in\mathfrak{R}[-\pi,\pi]\Rightarrow\begin{cases}\lim\limits_{n\to\infty}\int_{-\pi}^\pi f(x)\cos{nx}\mathrm{d}x=0\\\lim\limits_{n\to\infty}\int_{-\pi}^\pi f(x)\sin{nx}\mathrm{d}x=0\end{cases}
+$$
+</div>
+
+<h3 id="10-3-Fourier级数的收敛性"><a href="#10-3-Fourier级数的收敛性" class="headerlink" title="10.3 Fourier级数的收敛性"></a>10.3 Fourier级数的收敛性</h3><ol>
+<li>$f$ 以 $2\pi$ 为周期</li>
+<li>$f$ 在$[-\pi,\pi]$上的不连续点和不可微至多有限多个</li>
+<li>在每一个不连续点 $\xi$ 处具有第一类间断，即左、右极限 $f(\xi-0)$ 与 $f(\xi+0)$ 都存在</li>
+<li>在每一个不可微点 $\eta$，以下广义左、右极限存在，即 $\lim\limits_{t\to0^+}\frac{f(\eta+t)-f(\eta+0)}{t}$，$\lim\limits_{t\to0^+}\frac{f(\eta-t)-f(\eta-0)}{-t}$都存在</li>
+</ol>
+<p>则 $f$ 在每一点 $x_0$ 的Fourier级数收敛于$\displaystyle\frac{1}{2}[f(x_0+0)+f(x_0-0)]$</p>
 ]]></content>
       <categories>
         <category>数学</category>
