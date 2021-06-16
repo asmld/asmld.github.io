@@ -79,6 +79,15 @@
       </tags>
   </entry>
   <entry>
+    <title>Python中的字符串</title>
+    <url>/2021/06/16/Python%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+    <content><![CDATA[<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo+Icarus博客主题配置</title>
     <url>/2021/05/13/Hexo-Icarus%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p> 本文仅介绍部分Icarus主题的个性化配置，更多搭建博客有关信息请参考<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Hexo官方文档</a>、<a href="https://blog.zhangruipeng.me/hexo-theme-icarus/">Icarus官方文档</a>。</p>
@@ -101,14 +110,6 @@
         <tag>Hexo</tag>
         <tag>Icarus</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Python中的字符串</title>
-    <url>/2021/06/16/Python%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
   </entry>
   <entry>
     <title>Python基础练习&amp;解答</title>
