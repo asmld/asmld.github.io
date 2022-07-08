@@ -25,6 +25,84 @@
       </tags>
   </entry>
   <entry>
+    <title>Python-Pandas模块用法总结（一）</title>
+    <url>/2021/06/05/Python-Pandas%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%931/</url>
+    <content><![CDATA[<h1 id="1-导入Pandas库"><a href="#1-导入Pandas库" class="headerlink" title="1.导入Pandas库"></a>1.导入Pandas库</h1><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br></code></pre></td></tr></table></figure>
+<h1 id="2-Series对象"><a href="#2-Series对象" class="headerlink" title="2.Series对象"></a>2.Series对象</h1><h2 id="2-1创建Series对象"><a href="#2-1创建Series对象" class="headerlink" title="2.1创建Series对象"></a>2.1创建Series对象</h2><h3 id="不指定索引"><a href="#不指定索引" class="headerlink" title="不指定索引"></a>不指定索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># 通过元组创建</span><br>s2 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])  <span class="hljs-comment"># 通过列表创建</span><br>s3 = pd.Series(np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))  <span class="hljs-comment"># 通过Numpy一维数组创建</span><br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">1</span><br><span class="hljs-number">1</span>    <span class="hljs-number">2</span><br><span class="hljs-number">2</span>    <span class="hljs-number">3</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="指定索引"><a href="#指定索引" class="headerlink" title="指定索引"></a>指定索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;index0&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;index1&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;index2&#x27;</span>: <span class="hljs-number">3</span>&#125;<br>s1 = pd.Series(dic)  <span class="hljs-comment"># 通过字典创建</span><br>s2 = pd.Series(data=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;index1&#x27;</span>, <span class="hljs-string">&#x27;index2&#x27;</span>, <span class="hljs-string">&#x27;index3&#x27;</span>])  <span class="hljs-comment"># 使用index参数</span><br>&gt;&gt;&gt;<br>index0    <span class="hljs-number">1</span><br>index1    <span class="hljs-number">2</span><br>index2    <span class="hljs-number">3</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="指定数据类型"><a href="#指定数据类型" class="headerlink" title="指定数据类型"></a>指定数据类型</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], dtype=np.float64)<br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">1.0</span><br><span class="hljs-number">1</span>    <span class="hljs-number">2.0</span><br><span class="hljs-number">2</span>    <span class="hljs-number">3.0</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
+<h2 id="2-2索引Series对象"><a href="#2-2索引Series对象" class="headerlink" title="2.2索引Series对象"></a>2.2索引Series对象</h2><h3 id="直接索引"><a href="#直接索引" class="headerlink" title="直接索引"></a>直接索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>])<br>s1 = s[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]<br>s2 = s[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]]<br>&gt;&gt;&gt;<br><span class="hljs-number">1</span>    <span class="hljs-number">4</span><br><span class="hljs-number">2</span>    <span class="hljs-number">9</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;Tom&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;Jack&#x27;</span>: <span class="hljs-number">23</span>&#125;<br>s = pd.Series(dic)<br>s1 = s.loc[[<span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Tom&#x27;</span>]]<br>s2 = s.iloc[[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>]]<br>&gt;&gt;&gt;<br>Bob    <span class="hljs-number">20</span><br>Tom    <span class="hljs-number">18</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="取首尾"><a href="#取首尾" class="headerlink" title="取首尾"></a>取首尾</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">v = np.random.random_sample(<span class="hljs-number">50</span>)<br>s = pd.Series(v)<br>s1 = s.head()  <span class="hljs-comment"># 默认取5项</span><br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">0.042152</span><br><span class="hljs-number">1</span>    <span class="hljs-number">0.829074</span><br><span class="hljs-number">2</span>    <span class="hljs-number">0.363269</span><br><span class="hljs-number">3</span>    <span class="hljs-number">0.958803</span><br><span class="hljs-number">4</span>    <span class="hljs-number">0.113934</span><br>dtype: float64<br><br>s2 = s.tail(<span class="hljs-number">3</span>)<br>&gt;&gt;&gt;<br><span class="hljs-number">47</span>    <span class="hljs-number">0.257911</span><br><span class="hljs-number">48</span>    <span class="hljs-number">0.031124</span><br><span class="hljs-number">49</span>    <span class="hljs-number">0.456409</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
+<h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;Tom&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;Jack&#x27;</span>: <span class="hljs-number">23</span>&#125;<br>s = pd.Series(dic)<br>s1 = s[s&gt;<span class="hljs-number">20</span>]<br>&gt;&gt;&gt;<br>Jack    <span class="hljs-number">23</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h2 id="2-3操作Series对象"><a href="#2-3操作Series对象" class="headerlink" title="2.3操作Series对象"></a>2.3操作Series对象</h2><h3 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">v = [<span class="hljs-number">10</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, np.nan]<br>s = pd.Series(v)<br>l1 = s.count()  <span class="hljs-comment"># 不包括NaN</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">4</span><br>l2 = <span class="hljs-built_in">len</span>(s)  <span class="hljs-comment"># 包括NaN</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">5</span><br>s1 = s.unique()<br><span class="hljs-meta">&gt;&gt;&gt; </span>[<span class="hljs-number">10.</span>  <span class="hljs-number">3.</span>  <span class="hljs-number">2.</span> nan]<br>s2 = s.value_counts()<br>&gt;&gt;&gt;<br><span class="hljs-number">2.0</span>     <span class="hljs-number">2</span><br><span class="hljs-number">3.0</span>     <span class="hljs-number">1</span><br><span class="hljs-number">10.0</span>    <span class="hljs-number">1</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>], index=[<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>])<br>s1 = s.sort_values(ascending=<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 按值排序</span><br>&gt;&gt;&gt;<br>b    <span class="hljs-number">3</span><br>a    <span class="hljs-number">2</span><br>c    <span class="hljs-number">1</span><br>dtype: int64<br>s2 = s.sort_index(ascending=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># 按索引排序</span><br>&gt;&gt;&gt;<br>a    <span class="hljs-number">2</span><br>b    <span class="hljs-number">3</span><br>c    <span class="hljs-number">1</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+<h3 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&quot;Tom&quot;</span>: <span class="hljs-number">3.9</span>, <span class="hljs-string">&quot;Bob&quot;</span>: <span class="hljs-number">3.8</span>, <span class="hljs-string">&quot;Jack&quot;</span>: <span class="hljs-number">3.8</span>, <span class="hljs-string">&#x27;Lucy&#x27;</span>: <span class="hljs-number">3.79</span>&#125;<br>s = pd.Series(dic)<br>s1 = s.rank()<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">4.0</span><br>Bob     <span class="hljs-number">2.5</span><br>Jack    <span class="hljs-number">2.5</span><br>Lucy    <span class="hljs-number">1.0</span><br>dtype: float64<br><br>s2 = s.rank(ascending=<span class="hljs-literal">False</span>)<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">1.0</span><br>Bob     <span class="hljs-number">2.5</span><br>Jack    <span class="hljs-number">2.5</span><br>Lucy    <span class="hljs-number">4.0</span><br>dtype: float64<br><br>s3 = s.rank(ascending=<span class="hljs-literal">False</span>, method=<span class="hljs-string">&#x27;first&#x27;</span>)<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">1.0</span><br>Bob     <span class="hljs-number">2.0</span><br>Jack    <span class="hljs-number">3.0</span><br>Lucy    <span class="hljs-number">4.0</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
+<h3 id="增删改"><a href="#增删改" class="headerlink" title="增删改"></a>增删改</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])<br>s2 = pd.Series([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>], index=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>s3 = s1.append(s2)  <span class="hljs-comment"># 不改变s1的值</span><br>&gt;&gt;&gt;<br>a    <span class="hljs-number">1</span><br>b    <span class="hljs-number">2</span><br>c    <span class="hljs-number">3</span><br><span class="hljs-number">1</span>    a<br><span class="hljs-number">2</span>    b<br><span class="hljs-number">3</span>    c<br>dtype: <span class="hljs-built_in">object</span><br><br>s4 = s3.drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;a&#x27;</span>])  <span class="hljs-comment"># 不改变s3的值</span><br>&gt;&gt;&gt;<br>b    <span class="hljs-number">2</span><br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    c<br>dtype: <span class="hljs-built_in">object</span><br><br>s4[[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">3</span>]] = [<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>]<br>s4[[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">3</span>]] = <span class="hljs-string">&#x27;d&#x27;</span><br>&gt;&gt;&gt;<br>b    d<br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    d<br>dtype: <span class="hljs-built_in">object</span><br><br>s4[<span class="hljs-string">&#x27;d&#x27;</span>] = <span class="hljs-number">5</span><br>&gt;&gt;&gt;<br>b    d<br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    d<br>d    <span class="hljs-number">5</span><br>dtype: <span class="hljs-built_in">object</span><br></code></pre></td></tr></table></figure>
+<h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])<br>s2 = pd.Series([<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>], index=[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])<br><span class="hljs-built_in">sum</span> = s1 + s2<br>&gt;&gt;&gt;<br>a    NaN<br>b    <span class="hljs-number">5.0</span><br>c    <span class="hljs-number">5.0</span><br>d    NaN<br>dtype: float64<br><br>product = s1 * s2<br>&gt;&gt;&gt;<br>a    NaN<br>b    <span class="hljs-number">6.0</span><br>c    <span class="hljs-number">6.0</span><br>d    NaN<br>dtype: float64<br><br>quotient = s1 / s2<br>&gt;&gt;&gt;<br>a         NaN<br>b    <span class="hljs-number">0.666667</span><br>c    <span class="hljs-number">1.500000</span><br>d         NaN<br>dtype: float64<br><br>power = s1 ** s2<br>&gt;&gt;&gt;<br>a    <span class="hljs-number">1.0</span><br>b    <span class="hljs-number">8.0</span><br>c    <span class="hljs-number">9.0</span><br>d    NaN<br>dtype: float64<br></code></pre></td></tr></table></figure>
+<h3 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">意义</th>
+<th style="text-align:center">表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>x.sum()</code></td>
+<td style="text-align:center">求和</td>
+<td style="text-align:center">$s=\sum\limits_{i=1}^nx_i$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.mean()</code></td>
+<td style="text-align:center">均值</td>
+<td style="text-align:center">$\mu=\displaystyle\frac{1}{n}\sum\limits_{i=1}^nx_i$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.var()</code></td>
+<td style="text-align:center">无偏样本方差</td>
+<td style="text-align:center">$S^2=\displaystyle\frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\mu)^2$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.std()</code></td>
+<td style="text-align:center">无偏样本标准差</td>
+<td style="text-align:center">$S=\sqrt{\displaystyle\frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\mu)^2}$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.cov(y)</code></td>
+<td style="text-align:center">无偏样本协方差</td>
+<td style="text-align:center">$cov(x,y)=\displaystyle\frac{1}{n-1}\sum\limits_{i= }^{n}(x_i-\mu_x)(y_i-\mu_y)$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.corr(y)</code></td>
+<td style="text-align:center">相关系数</td>
+<td style="text-align:center">$r=\frac{\sum\limits_{i=1}^n(x_i-\mu_x)(y_i-\mu_y)}{\sqrt{\sum\limits_{i=1}^n(x_i-\mu_x)^2 \sum\limits_{i=1}^n(y_i-\mu_y)^2}}$</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.max()</code></td>
+<td style="text-align:center">最大值</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>x.idmax()</code></td>
+<td style="text-align:center">最大值的索引</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>x.describe()</code>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><span class="hljs-built_in">print</span>(s.describe())<br>&gt;&gt;&gt;<br>count    <span class="hljs-number">10.00000</span><br>mean      <span class="hljs-number">4.50000</span><br>std       <span class="hljs-number">3.02765</span><br><span class="hljs-built_in">min</span>       <span class="hljs-number">0.00000</span><br><span class="hljs-number">25</span>%       <span class="hljs-number">2.25000</span><br><span class="hljs-number">50</span>%       <span class="hljs-number">4.50000</span><br><span class="hljs-number">75</span>%       <span class="hljs-number">6.75000</span><br><span class="hljs-built_in">max</span>       <span class="hljs-number">9.00000</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Notice</title>
     <url>/2022/06/20/Notice/</url>
     <content><![CDATA[<h1 id="一、可以添加的文章结构"><a href="#一、可以添加的文章结构" class="headerlink" title="一、可以添加的文章结构"></a>一、可以添加的文章结构</h1><ol>
@@ -124,81 +202,63 @@
       </tags>
   </entry>
   <entry>
-    <title>Python-Pandas模块用法总结（一）</title>
-    <url>/2021/06/05/Python-Pandas%E6%A8%A1%E5%9D%97%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%931/</url>
-    <content><![CDATA[<h1 id="1-导入Pandas库"><a href="#1-导入Pandas库" class="headerlink" title="1.导入Pandas库"></a>1.导入Pandas库</h1><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br></code></pre></td></tr></table></figure>
-<h1 id="2-Series对象"><a href="#2-Series对象" class="headerlink" title="2.Series对象"></a>2.Series对象</h1><h2 id="2-1创建Series对象"><a href="#2-1创建Series对象" class="headerlink" title="2.1创建Series对象"></a>2.1创建Series对象</h2><h3 id="不指定索引"><a href="#不指定索引" class="headerlink" title="不指定索引"></a>不指定索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># 通过元组创建</span><br>s2 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])  <span class="hljs-comment"># 通过列表创建</span><br>s3 = pd.Series(np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))  <span class="hljs-comment"># 通过Numpy一维数组创建</span><br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">1</span><br><span class="hljs-number">1</span>    <span class="hljs-number">2</span><br><span class="hljs-number">2</span>    <span class="hljs-number">3</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="指定索引"><a href="#指定索引" class="headerlink" title="指定索引"></a>指定索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;index0&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;index1&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;index2&#x27;</span>: <span class="hljs-number">3</span>&#125;<br>s1 = pd.Series(dic)  <span class="hljs-comment"># 通过字典创建</span><br>s2 = pd.Series(data=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;index1&#x27;</span>, <span class="hljs-string">&#x27;index2&#x27;</span>, <span class="hljs-string">&#x27;index3&#x27;</span>])  <span class="hljs-comment"># 使用index参数</span><br>&gt;&gt;&gt;<br>index0    <span class="hljs-number">1</span><br>index1    <span class="hljs-number">2</span><br>index2    <span class="hljs-number">3</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="指定数据类型"><a href="#指定数据类型" class="headerlink" title="指定数据类型"></a>指定数据类型</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], dtype=np.float64)<br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">1.0</span><br><span class="hljs-number">1</span>    <span class="hljs-number">2.0</span><br><span class="hljs-number">2</span>    <span class="hljs-number">3.0</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
-<h2 id="2-2索引Series对象"><a href="#2-2索引Series对象" class="headerlink" title="2.2索引Series对象"></a>2.2索引Series对象</h2><h3 id="直接索引"><a href="#直接索引" class="headerlink" title="直接索引"></a>直接索引</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>, <span class="hljs-number">25</span>])<br>s1 = s[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>]<br>s2 = s[[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]]<br>&gt;&gt;&gt;<br><span class="hljs-number">1</span>    <span class="hljs-number">4</span><br><span class="hljs-number">2</span>    <span class="hljs-number">9</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;Tom&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;Jack&#x27;</span>: <span class="hljs-number">23</span>&#125;<br>s = pd.Series(dic)<br>s1 = s.loc[[<span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;Tom&#x27;</span>]]<br>s2 = s.iloc[[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>]]<br>&gt;&gt;&gt;<br>Bob    <span class="hljs-number">20</span><br>Tom    <span class="hljs-number">18</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="取首尾"><a href="#取首尾" class="headerlink" title="取首尾"></a>取首尾</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">v = np.random.random_sample(<span class="hljs-number">50</span>)<br>s = pd.Series(v)<br>s1 = s.head()  <span class="hljs-comment"># 默认取5项</span><br>&gt;&gt;&gt;<br><span class="hljs-number">0</span>    <span class="hljs-number">0.042152</span><br><span class="hljs-number">1</span>    <span class="hljs-number">0.829074</span><br><span class="hljs-number">2</span>    <span class="hljs-number">0.363269</span><br><span class="hljs-number">3</span>    <span class="hljs-number">0.958803</span><br><span class="hljs-number">4</span>    <span class="hljs-number">0.113934</span><br>dtype: float64<br><br>s2 = s.tail(<span class="hljs-number">3</span>)<br>&gt;&gt;&gt;<br><span class="hljs-number">47</span>    <span class="hljs-number">0.257911</span><br><span class="hljs-number">48</span>    <span class="hljs-number">0.031124</span><br><span class="hljs-number">49</span>    <span class="hljs-number">0.456409</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
-<h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&#x27;Tom&#x27;</span>: <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;Jack&#x27;</span>: <span class="hljs-number">23</span>&#125;<br>s = pd.Series(dic)<br>s1 = s[s&gt;<span class="hljs-number">20</span>]<br>&gt;&gt;&gt;<br>Jack    <span class="hljs-number">23</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h2 id="2-3操作Series对象"><a href="#2-3操作Series对象" class="headerlink" title="2.3操作Series对象"></a>2.3操作Series对象</h2><h3 id="计数"><a href="#计数" class="headerlink" title="计数"></a>计数</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">v = [<span class="hljs-number">10</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, np.nan]<br>s = pd.Series(v)<br>l1 = s.count()  <span class="hljs-comment"># 不包括NaN</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">4</span><br>l2 = <span class="hljs-built_in">len</span>(s)  <span class="hljs-comment"># 包括NaN</span><br><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">5</span><br>s1 = s.unique()<br><span class="hljs-meta">&gt;&gt;&gt; </span>[<span class="hljs-number">10.</span>  <span class="hljs-number">3.</span>  <span class="hljs-number">2.</span> nan]<br>s2 = s.value_counts()<br>&gt;&gt;&gt;<br><span class="hljs-number">2.0</span>     <span class="hljs-number">2</span><br><span class="hljs-number">3.0</span>     <span class="hljs-number">1</span><br><span class="hljs-number">10.0</span>    <span class="hljs-number">1</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>], index=[<span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>])<br>s1 = s.sort_values(ascending=<span class="hljs-literal">False</span>)  <span class="hljs-comment"># 按值排序</span><br>&gt;&gt;&gt;<br>b    <span class="hljs-number">3</span><br>a    <span class="hljs-number">2</span><br>c    <span class="hljs-number">1</span><br>dtype: int64<br>s2 = s.sort_index(ascending=<span class="hljs-literal">True</span>)  <span class="hljs-comment"># 按索引排序</span><br>&gt;&gt;&gt;<br>a    <span class="hljs-number">2</span><br>b    <span class="hljs-number">3</span><br>c    <span class="hljs-number">1</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
-<h3 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">dic = &#123;<span class="hljs-string">&quot;Tom&quot;</span>: <span class="hljs-number">3.9</span>, <span class="hljs-string">&quot;Bob&quot;</span>: <span class="hljs-number">3.8</span>, <span class="hljs-string">&quot;Jack&quot;</span>: <span class="hljs-number">3.8</span>, <span class="hljs-string">&#x27;Lucy&#x27;</span>: <span class="hljs-number">3.79</span>&#125;<br>s = pd.Series(dic)<br>s1 = s.rank()<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">4.0</span><br>Bob     <span class="hljs-number">2.5</span><br>Jack    <span class="hljs-number">2.5</span><br>Lucy    <span class="hljs-number">1.0</span><br>dtype: float64<br><br>s2 = s.rank(ascending=<span class="hljs-literal">False</span>)<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">1.0</span><br>Bob     <span class="hljs-number">2.5</span><br>Jack    <span class="hljs-number">2.5</span><br>Lucy    <span class="hljs-number">4.0</span><br>dtype: float64<br><br>s3 = s.rank(ascending=<span class="hljs-literal">False</span>, method=<span class="hljs-string">&#x27;first&#x27;</span>)<br>&gt;&gt;&gt;<br>Tom     <span class="hljs-number">1.0</span><br>Bob     <span class="hljs-number">2.0</span><br>Jack    <span class="hljs-number">3.0</span><br>Lucy    <span class="hljs-number">4.0</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
-<h3 id="增删改"><a href="#增删改" class="headerlink" title="增删改"></a>增删改</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])<br>s2 = pd.Series([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>], index=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])<br>s3 = s1.append(s2)  <span class="hljs-comment"># 不改变s1的值</span><br>&gt;&gt;&gt;<br>a    <span class="hljs-number">1</span><br>b    <span class="hljs-number">2</span><br>c    <span class="hljs-number">3</span><br><span class="hljs-number">1</span>    a<br><span class="hljs-number">2</span>    b<br><span class="hljs-number">3</span>    c<br>dtype: <span class="hljs-built_in">object</span><br><br>s4 = s3.drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;a&#x27;</span>])  <span class="hljs-comment"># 不改变s3的值</span><br>&gt;&gt;&gt;<br>b    <span class="hljs-number">2</span><br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    c<br>dtype: <span class="hljs-built_in">object</span><br><br>s4[[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">3</span>]] = [<span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>]<br>s4[[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-number">3</span>]] = <span class="hljs-string">&#x27;d&#x27;</span><br>&gt;&gt;&gt;<br>b    d<br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    d<br>dtype: <span class="hljs-built_in">object</span><br><br>s4[<span class="hljs-string">&#x27;d&#x27;</span>] = <span class="hljs-number">5</span><br>&gt;&gt;&gt;<br>b    d<br>c    <span class="hljs-number">3</span><br><span class="hljs-number">3</span>    d<br>d    <span class="hljs-number">5</span><br>dtype: <span class="hljs-built_in">object</span><br></code></pre></td></tr></table></figure>
-<h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], index=[<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])<br>s2 = pd.Series([<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>], index=[<span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])<br><span class="hljs-built_in">sum</span> = s1 + s2<br>&gt;&gt;&gt;<br>a    NaN<br>b    <span class="hljs-number">5.0</span><br>c    <span class="hljs-number">5.0</span><br>d    NaN<br>dtype: float64<br><br>product = s1 * s2<br>&gt;&gt;&gt;<br>a    NaN<br>b    <span class="hljs-number">6.0</span><br>c    <span class="hljs-number">6.0</span><br>d    NaN<br>dtype: float64<br><br>quotient = s1 / s2<br>&gt;&gt;&gt;<br>a         NaN<br>b    <span class="hljs-number">0.666667</span><br>c    <span class="hljs-number">1.500000</span><br>d         NaN<br>dtype: float64<br><br>power = s1 ** s2<br>&gt;&gt;&gt;<br>a    <span class="hljs-number">1.0</span><br>b    <span class="hljs-number">8.0</span><br>c    <span class="hljs-number">9.0</span><br>d    NaN<br>dtype: float64<br></code></pre></td></tr></table></figure>
-<h3 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">意义</th>
-<th style="text-align:center">表达式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>x.sum()</code></td>
-<td style="text-align:center">求和</td>
-<td style="text-align:center">$s=\sum\limits_{i=1}^nx_i$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.mean()</code></td>
-<td style="text-align:center">均值</td>
-<td style="text-align:center">$\mu=\displaystyle\frac{1}{n}\sum\limits_{i=1}^nx_i$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.var()</code></td>
-<td style="text-align:center">无偏样本方差</td>
-<td style="text-align:center">$S^2=\displaystyle\frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\mu)^2$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.std()</code></td>
-<td style="text-align:center">无偏样本标准差</td>
-<td style="text-align:center">$S=\sqrt{\displaystyle\frac{1}{n-1}\sum\limits_{i=1}^n(x_i-\mu)^2}$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.cov(y)</code></td>
-<td style="text-align:center">无偏样本协方差</td>
-<td style="text-align:center">$cov(x,y)=\displaystyle\frac{1}{n-1}\sum\limits_{i= }^{n}(x_i-\mu_x)(y_i-\mu_y)$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.corr(y)</code></td>
-<td style="text-align:center">相关系数</td>
-<td style="text-align:center">$r=\frac{\sum\limits_{i=1}^n(x_i-\mu_x)(y_i-\mu_y)}{\sqrt{\sum\limits_{i=1}^n(x_i-\mu_x)^2 \sum\limits_{i=1}^n(y_i-\mu_y)^2}}$</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.max()</code></td>
-<td style="text-align:center">最大值</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>x.idmax()</code></td>
-<td style="text-align:center">最大值的索引</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><code>x.describe()</code>：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s = pd.Series(<span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>))<br><span class="hljs-built_in">print</span>(s.describe())<br>&gt;&gt;&gt;<br>count    <span class="hljs-number">10.00000</span><br>mean      <span class="hljs-number">4.50000</span><br>std       <span class="hljs-number">3.02765</span><br><span class="hljs-built_in">min</span>       <span class="hljs-number">0.00000</span><br><span class="hljs-number">25</span>%       <span class="hljs-number">2.25000</span><br><span class="hljs-number">50</span>%       <span class="hljs-number">4.50000</span><br><span class="hljs-number">75</span>%       <span class="hljs-number">6.75000</span><br><span class="hljs-built_in">max</span>       <span class="hljs-number">9.00000</span><br>dtype: float64<br></code></pre></td></tr></table></figure>
+    <title>广州-厦门之行</title>
+    <url>/2022/07/03/%E5%B9%BF%E5%B7%9E-%E5%8E%A6%E9%97%A8%E4%B9%8B%E8%A1%8C/</url>
+    <content><![CDATA[<h1 id="广州-厦门旅游攻略"><a href="#广州-厦门旅游攻略" class="headerlink" title="广州-厦门旅游攻略"></a>广州-厦门旅游攻略</h1><h2 id="Part-1-广州"><a href="#Part-1-广州" class="headerlink" title="Part 1 广州"></a>Part 1 广州</h2><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041639714.jpg" alt="广州"></p>
+<h3 id="Day-1（7月10日）"><a href="#Day-1（7月10日）" class="headerlink" title="Day 1（7月10日）"></a>Day 1（7月10日）</h3><h4 id="1-坐高铁"><a href="#1-坐高铁" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041643888.jpg" alt="宜宾-广州"></p>
+<h4 id="2-入住酒店"><a href="#2-入住酒店" class="headerlink" title="2.入住酒店"></a>2.入住酒店</h4><blockquote>
+<p>汉庭酒店（广州中山八地铁站店）</p>
+</blockquote>
+<h4 id="3-西华路、北京路步行街"><a href="#3-西华路、北京路步行街" class="headerlink" title="3.西华路、北京路步行街"></a>3.西华路、北京路步行街</h4><blockquote>
+<p>时间：晚上</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">96 小驴儿叹世界发布了一篇小红书笔记，快来看吧！ 😆 0Xni9QijTG5EjfO 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;wmMf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h3 id="Day-2（7月11日）"><a href="#Day-2（7月11日）" class="headerlink" title="Day 2（7月11日）"></a>Day 2（7月11日）</h3><h4 id="1-沙面大街"><a href="#1-沙面大街" class="headerlink" title="1.沙面大街"></a>1.沙面大街</h4><blockquote>
+<p>时间：上午</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">43 小驴儿叹世界发布了一篇小红书笔记，快来看吧！ 😆 yQ6Jd1khWQRpIh1 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;KCje6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h4 id="2-海珠广场"><a href="#2-海珠广场" class="headerlink" title="2.海珠广场"></a>2.海珠广场</h4><blockquote>
+<p>时间：下午</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">26 卡卡的旅拍日记发布了一篇小红书笔记，快来看吧！ 😆 sbBkkVIoMvYyEWB 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;Vznf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h4 id="3-天字码头-中山大学-广州塔"><a href="#3-天字码头-中山大学-广州塔" class="headerlink" title="3.天字码头+中山大学+广州塔"></a>3.天字码头+中山大学+广州塔</h4><blockquote>
+<p>时间：晚上</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">41 郭小yan发布了一篇小红书笔记，快来看吧！ 😆 JhOEWzUUMSCLSS9 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;0Slf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h3 id="Day-3（7月12日）"><a href="#Day-3（7月12日）" class="headerlink" title="Day 3（7月12日）"></a>Day 3（7月12日）</h3><h4 id="1-坐高铁-1"><a href="#1-坐高铁-1" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><blockquote>
+<p>时间：上午</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041654368.jpg" alt="广州-东山岛"></p>
+<h4 id="2-入住旅馆"><a href="#2-入住旅馆" class="headerlink" title="2.入住旅馆"></a>2.入住旅馆</h4><blockquote>
+<p>东山德居民宿</p>
+</blockquote>
+<h4 id="3-南门湾"><a href="#3-南门湾" class="headerlink" title="3.南门湾"></a>3.南门湾</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041639903.jpg" alt="东山岛"></p>
+<h2 id="Part-2-东山岛"><a href="#Part-2-东山岛" class="headerlink" title="Part 2 东山岛"></a>Part 2 东山岛</h2><h3 id="Day-4（7月13日）"><a href="#Day-4（7月13日）" class="headerlink" title="Day 4（7月13日）"></a>Day 4（7月13日）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">44 010026发布了一篇小红书笔记，快来看吧！ 😆 1E5zQpvaUrTZVJ8 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;suat6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h2 id="Part-3-厦门"><a href="#Part-3-厦门" class="headerlink" title="Part 3 厦门"></a>Part 3 厦门</h2><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041640448.jpg" alt="厦门"></p>
+<h3 id="Day-5（7月14日）"><a href="#Day-5（7月14日）" class="headerlink" title="Day 5（7月14日）"></a>Day 5（7月14日）</h3><h4 id="1-坐高铁-2"><a href="#1-坐高铁-2" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><blockquote>
+<p>时间：早上</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041654576.jpg" alt="东山岛-厦门"></p>
+<h4 id="2-住酒店"><a href="#2-住酒店" class="headerlink" title="2.住酒店"></a>2.住酒店</h4><blockquote>
+<p>艾思顿酒店（厦门中山路白鹭洲公园店）</p>
+</blockquote>
+<h4 id="3-集美学村、石鼓路、海堤公园"><a href="#3-集美学村、石鼓路、海堤公园" class="headerlink" title="3.集美学村、石鼓路、海堤公园"></a>3.集美学村、石鼓路、海堤公园</h4><h3 id="Day-6（7月15日）"><a href="#Day-6（7月15日）" class="headerlink" title="Day 6（7月15日）"></a>Day 6（7月15日）</h3><h4 id="1-鼓浪屿"><a href="#1-鼓浪屿" class="headerlink" title="1.鼓浪屿"></a>1.鼓浪屿</h4><blockquote>
+<p>时间：一天</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">15 走着瞧旅行⭐笑笑发布了一篇小红书笔记，快来看吧！ 😆 Z1VIhLz1jcIDVD4 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;lzjq6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
+<h3 id="Day-7（7月16日）"><a href="#Day-7（7月16日）" class="headerlink" title="Day 7（7月16日）"></a>Day 7（7月16日）</h3><h4 id="1-黄厝沙滩-椰风寨"><a href="#1-黄厝沙滩-椰风寨" class="headerlink" title="1.黄厝沙滩/椰风寨"></a>1.黄厝沙滩/椰风寨</h4><blockquote>
+<p>时间：早上</p>
+</blockquote>
+<h4 id="2-环岛骑行"><a href="#2-环岛骑行" class="headerlink" title="2.环岛骑行"></a>2.环岛骑行</h4><blockquote>
+<p>时间：下午+晚上</p>
+</blockquote>
+<h3 id="Day-8（7月17日）"><a href="#Day-8（7月17日）" class="headerlink" title="Day 8（7月17日）"></a>Day 8（7月17日）</h3><h4 id="1-坐高铁-3"><a href="#1-坐高铁-3" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041655527.jpg" alt="厦门-宜宾"></p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>旅游攻略</category>
       </categories>
       <tags>
-        <tag>pandas</tag>
+        <tag>旅游攻略</tag>
       </tags>
   </entry>
   <entry>
@@ -320,66 +380,6 @@ $$
       <tags>
         <tag>编程</tag>
         <tag>练习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>广州-厦门之行</title>
-    <url>/2022/07/03/%E5%B9%BF%E5%B7%9E-%E5%8E%A6%E9%97%A8%E4%B9%8B%E8%A1%8C/</url>
-    <content><![CDATA[<h1 id="广州-厦门旅游攻略"><a href="#广州-厦门旅游攻略" class="headerlink" title="广州-厦门旅游攻略"></a>广州-厦门旅游攻略</h1><h2 id="Part-1-广州"><a href="#Part-1-广州" class="headerlink" title="Part 1 广州"></a>Part 1 广州</h2><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041639714.jpg" alt="广州"></p>
-<h3 id="Day-1（7月10日）"><a href="#Day-1（7月10日）" class="headerlink" title="Day 1（7月10日）"></a>Day 1（7月10日）</h3><h4 id="1-坐高铁"><a href="#1-坐高铁" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041643888.jpg" alt="宜宾-广州"></p>
-<h4 id="2-入住酒店"><a href="#2-入住酒店" class="headerlink" title="2.入住酒店"></a>2.入住酒店</h4><blockquote>
-<p>汉庭酒店（广州中山八地铁站店）</p>
-</blockquote>
-<h4 id="3-西华路、北京路步行街"><a href="#3-西华路、北京路步行街" class="headerlink" title="3.西华路、北京路步行街"></a>3.西华路、北京路步行街</h4><blockquote>
-<p>时间：晚上</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">96 小驴儿叹世界发布了一篇小红书笔记，快来看吧！ 😆 0Xni9QijTG5EjfO 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;wmMf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h3 id="Day-2（7月11日）"><a href="#Day-2（7月11日）" class="headerlink" title="Day 2（7月11日）"></a>Day 2（7月11日）</h3><h4 id="1-沙面大街"><a href="#1-沙面大街" class="headerlink" title="1.沙面大街"></a>1.沙面大街</h4><blockquote>
-<p>时间：上午</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">43 小驴儿叹世界发布了一篇小红书笔记，快来看吧！ 😆 yQ6Jd1khWQRpIh1 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;KCje6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h4 id="2-海珠广场"><a href="#2-海珠广场" class="headerlink" title="2.海珠广场"></a>2.海珠广场</h4><blockquote>
-<p>时间：下午</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">26 卡卡的旅拍日记发布了一篇小红书笔记，快来看吧！ 😆 sbBkkVIoMvYyEWB 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;Vznf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h4 id="3-天字码头-中山大学-广州塔"><a href="#3-天字码头-中山大学-广州塔" class="headerlink" title="3.天字码头+中山大学+广州塔"></a>3.天字码头+中山大学+广州塔</h4><blockquote>
-<p>时间：晚上</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">41 郭小yan发布了一篇小红书笔记，快来看吧！ 😆 JhOEWzUUMSCLSS9 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;0Slf6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h3 id="Day-3（7月12日）"><a href="#Day-3（7月12日）" class="headerlink" title="Day 3（7月12日）"></a>Day 3（7月12日）</h3><h4 id="1-坐高铁-1"><a href="#1-坐高铁-1" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><blockquote>
-<p>时间：上午</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041654368.jpg" alt="广州-东山岛"></p>
-<h4 id="2-入住旅馆"><a href="#2-入住旅馆" class="headerlink" title="2.入住旅馆"></a>2.入住旅馆</h4><blockquote>
-<p>东山德居民宿</p>
-</blockquote>
-<h4 id="3-南门湾"><a href="#3-南门湾" class="headerlink" title="3.南门湾"></a>3.南门湾</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041639903.jpg" alt="东山岛"></p>
-<h2 id="Part-2-东山岛"><a href="#Part-2-东山岛" class="headerlink" title="Part 2 东山岛"></a>Part 2 东山岛</h2><h3 id="Day-4（7月13日）"><a href="#Day-4（7月13日）" class="headerlink" title="Day 4（7月13日）"></a>Day 4（7月13日）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">44 010026发布了一篇小红书笔记，快来看吧！ 😆 1E5zQpvaUrTZVJ8 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;suat6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h2 id="Part-3-厦门"><a href="#Part-3-厦门" class="headerlink" title="Part 3 厦门"></a>Part 3 厦门</h2><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041640448.jpg" alt="厦门"></p>
-<h3 id="Day-5（7月14日）"><a href="#Day-5（7月14日）" class="headerlink" title="Day 5（7月14日）"></a>Day 5（7月14日）</h3><h4 id="1-坐高铁-2"><a href="#1-坐高铁-2" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><blockquote>
-<p>时间：早上</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041654576.jpg" alt="东山岛-厦门"></p>
-<h4 id="2-住酒店"><a href="#2-住酒店" class="headerlink" title="2.住酒店"></a>2.住酒店</h4><blockquote>
-<p>艾思顿酒店（厦门中山路白鹭洲公园店）</p>
-</blockquote>
-<h4 id="3-集美学村、石鼓路、海堤公园"><a href="#3-集美学村、石鼓路、海堤公园" class="headerlink" title="3.集美学村、石鼓路、海堤公园"></a>3.集美学村、石鼓路、海堤公园</h4><h3 id="Day-6（7月15日）"><a href="#Day-6（7月15日）" class="headerlink" title="Day 6（7月15日）"></a>Day 6（7月15日）</h3><h4 id="1-黄厝沙滩-椰风寨"><a href="#1-黄厝沙滩-椰风寨" class="headerlink" title="1.黄厝沙滩/椰风寨"></a>1.黄厝沙滩/椰风寨</h4><blockquote>
-<p>时间：早上</p>
-</blockquote>
-<h4 id="2-环岛骑行"><a href="#2-环岛骑行" class="headerlink" title="2.环岛骑行"></a>2.环岛骑行</h4><blockquote>
-<p>时间：下午+晚上</p>
-</blockquote>
-<h3 id="Day-7（7月16日）"><a href="#Day-7（7月16日）" class="headerlink" title="Day 7（7月16日）"></a>Day 7（7月16日）</h3><h4 id="1-鼓浪屿"><a href="#1-鼓浪屿" class="headerlink" title="1.鼓浪屿"></a>1.鼓浪屿</h4><blockquote>
-<p>时间：一天</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs 小红书">15 走着瞧旅行⭐笑笑发布了一篇小红书笔记，快来看吧！ 😆 Z1VIhLz1jcIDVD4 😆 http:&#x2F;&#x2F;xhslink.com&#x2F;lzjq6h，复制本条信息，打开【小红书】App查看精彩内容！<br></code></pre></td></tr></table></figure>
-<h3 id="Day-8（7月17日）"><a href="#Day-8（7月17日）" class="headerlink" title="Day 8（7月17日）"></a>Day 8（7月17日）</h3><h4 id="1-坐高铁-3"><a href="#1-坐高铁-3" class="headerlink" title="1.坐高铁"></a>1.坐高铁</h4><p><img src="https://raw.githubusercontent.com/asmld/Picture/master/img/202207041655527.jpg" alt="厦门-宜宾"></p>
-]]></content>
-      <categories>
-        <category>旅游攻略</category>
-      </categories>
-      <tags>
-        <tag>旅游攻略</tag>
       </tags>
   </entry>
   <entry>
